@@ -1,0 +1,4089 @@
+<style>
+  #copy-text {
+    display: none;
+  }
+
+  .container {
+    max-width: 1250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+  }
+
+  .footer {
+    display: none;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--bgColor-default, var(--color-canvas-default));
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Noto Sans", sans-serif !important;
+    font-optical-sizing: auto;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+
+  body {
+    -webkit-text-size-adjust: 100%;
+    --rgh-green: var(--fgColor-success, var(--color-success-fg, #1a7f37));
+    --rgh-red: var(--fgColor-danger, var(--color-danger-fg, #cf222e));
+    --rgh-border-color: var(--borderColor-muted,
+        var(--color-border-muted, #d8dee4));
+    --rgh-background: var(--bgColor-default, var(--color-canvas-default, #fff));
+    --rgh-heat-color: #c24e00;
+    --tab-size: 4;
+    tab-size: var(--tab-size);
+    --rgh-limit-color: var(--rgh-red);
+    --rgh-table-input-size: 20px;
+    --base-size-2: 0.125rem;
+    --base-size-4: 0.25rem;
+    --base-size-6: 0.375rem;
+    --base-size-8: 0.5rem;
+    --base-size-12: 0.75rem;
+    --base-size-16: 1rem;
+    --base-size-20: 1.25rem;
+    --base-size-24: 1.5rem;
+    --base-size-28: 1.75rem;
+    --base-size-32: 2rem;
+    --base-size-36: 2.25rem;
+    --base-size-40: 2.5rem;
+    --base-size-44: 2.75rem;
+    --base-size-48: 3rem;
+    --base-size-64: 4rem;
+    --base-size-80: 5rem;
+    --base-size-96: 6rem;
+    --base-size-112: 7rem;
+    --base-size-128: 8rem;
+    --base-text-weight-light: 300;
+    --base-text-weight-normal: 400;
+    --base-text-weight-medium: 500;
+    --base-text-weight-semibold: 600;
+    --boxShadow-thin: inset 0 0 0 max(1px, 0.0625rem);
+    --boxShadow-thick: inset 0 0 0 max(2px, 0.125rem);
+    --boxShadow-thicker: inset 0 0 0 max(4px, 0.25rem);
+    --borderWidth-thin: max(1px, 0.0625rem);
+    --borderWidth-thick: max(2px, 0.125rem);
+    --borderWidth-thicker: max(4px, 0.25rem);
+    --borderRadius-small: 0.1875rem;
+    --borderRadius-medium: 0.375rem;
+    --borderRadius-large: 0.75rem;
+    --borderRadius-full: 624.9375rem;
+    --outline-focus-offset: -0.125rem;
+    --outline-focus-width: 0.125rem;
+    --breakpoint-xsmall: 20rem;
+    --breakpoint-small: 34rem;
+    --breakpoint-medium: 48rem;
+    --breakpoint-large: 63.25rem;
+    --breakpoint-xlarge: 80rem;
+    --breakpoint-xxlarge: 87.5rem;
+    --control-minTarget-auto: 1rem;
+    --controlStack-small-gap-auto: 0.5rem;
+    --controlStack-medium-gap-auto: 0.5rem;
+    --control-minTarget-fine: 1rem;
+    --control-minTarget-coarse: 2.75rem;
+    --control-xsmall-size: 1.5rem;
+    --control-xsmall-lineBoxHeight: 1.25rem;
+    --control-xsmall-paddingBlock: 0.125rem;
+    --control-xsmall-paddingInline-condensed: 0.25rem;
+    --control-xsmall-paddingInline-normal: 0.5rem;
+    --control-xsmall-paddingInline-spacious: 0.75rem;
+    --control-xsmall-gap: 0.25rem;
+    --control-small-size: 1.75rem;
+    --control-small-lineBoxHeight: 1.25rem;
+    --control-small-paddingBlock: 0.25rem;
+    --control-small-paddingInline-condensed: 0.5rem;
+    --control-small-paddingInline-normal: 0.75rem;
+    --control-small-gap: 0.25rem;
+    --control-medium-size: 2rem;
+    --control-medium-lineBoxHeight: 1.25rem;
+    --control-medium-paddingBlock: 0.375rem;
+    --control-medium-paddingInline-condensed: 0.5rem;
+    --control-medium-paddingInline-normal: 0.75rem;
+    --control-medium-paddingInline-spacious: 1rem;
+    --control-medium-gap: 0.5rem;
+    --control-large-size: 2.5rem;
+    --control-large-lineBoxHeight: 1.25rem;
+    --control-large-paddingBlock: 0.625rem;
+    --control-large-paddingInline-normal: 0.75rem;
+    --control-large-paddingInline-spacious: 1rem;
+    --control-large-gap: 0.5rem;
+    --control-xlarge-size: 3rem;
+    --control-xlarge-lineBoxHeight: 1.25rem;
+    --control-xlarge-paddingBlock: 0.875rem;
+    --control-xlarge-paddingInline-normal: 0.75rem;
+    --control-xlarge-paddingInline-spacious: 1rem;
+    --control-xlarge-gap: 0.5rem;
+    --controlStack-small-gap-condensed: 0.5rem;
+    --controlStack-small-gap-spacious: 1rem;
+    --controlStack-medium-gap-condensed: 0.5rem;
+    --controlStack-medium-gap-spacious: 0.75rem;
+    --controlStack-large-gap-auto: 0.5rem;
+    --controlStack-large-gap-condensed: 0.5rem;
+    --controlStack-large-gap-spacious: 0.75rem;
+    --space-xxsmall: 0.125rem;
+    --space-xsmall: 0.25rem;
+    --space-small: 0.375rem;
+    --space-medium: 0.5rem;
+    --space-large: 0.75rem;
+    --space-xlarge: 1rem;
+    --spinner-strokeWidth-default: 0.125rem;
+    --spinner-size-small: 1rem;
+    --spinner-size-medium: 2rem;
+    --spinner-size-large: 4rem;
+    --stack-padding-condensed: 0.5rem;
+    --stack-padding-normal: 1rem;
+    --stack-padding-spacious: 1.5rem;
+    --stack-gap-condensed: 0.5rem;
+    --stack-gap-normal: 1rem;
+    --stack-gap-spacious: 1.5rem;
+    --overlay-width-xsmall: 12rem;
+    --overlay-width-small: 20rem;
+    --overlay-width-medium: 30rem;
+    --overlay-width-large: 40rem;
+    --overlay-width-xlarge: 60rem;
+    --overlay-height-small: 16rem;
+    --overlay-height-medium: 20rem;
+    --overlay-height-large: 27rem;
+    --overlay-height-xlarge: 37.5rem;
+    --overlay-padding-normal: 1rem;
+    --overlay-padding-condensed: 0.5rem;
+    --overlay-paddingBlock-condensed: 0.25rem;
+    --overlay-paddingBlock-normal: 0.75rem;
+    --overlay-borderRadius: 0.375rem;
+    --overlay-offset: 0.25rem;
+    --text-codeInline-size: 0.9285em;
+    --text-codeBlock-lineHeight: 1.5385;
+    --text-codeBlock-size: 0.8125rem;
+    --text-caption-lineHeight: 1.3333;
+    --text-caption-size: 0.75rem;
+    --text-body-lineHeight-small: 1.6666;
+    --text-body-lineHeight-medium: 1.4285;
+    --text-body-lineHeight-large: 1.5;
+    --text-body-size-small: 0.75rem;
+    --text-body-size-medium: 0.875rem;
+    --text-body-size-large: 1rem;
+    --text-subtitle-lineHeight: 1.6;
+    --text-subtitle-size: 1.25rem;
+    --text-title-lineHeight-small: 1.5;
+    --text-title-lineHeight-medium: 1.6;
+    --text-title-lineHeight-large: 1.5;
+    --text-title-size-small: 1rem;
+    --text-title-size-medium: 1.25rem;
+    --text-title-size-large: 2rem;
+    --text-display-lineHeight: 1.4;
+    --text-display-size: 2.5rem;
+    --text-display-lineBoxHeight: 1.4;
+    --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    --fontStack-sansSerifDisplay: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --fontStack-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --text-codeInline-weight: var(--base-text-weight-normal);
+    --text-codeBlock-weight: var(--base-text-weight-normal);
+    --text-caption-weight: var(--base-text-weight-normal);
+    --text-body-weight: var(--base-text-weight-normal);
+    --text-subtitle-weight: var(--base-text-weight-normal);
+    --text-title-weight-small: var(--base-text-weight-semibold);
+    --text-title-weight-medium: var(--base-text-weight-semibold);
+    --text-title-weight-large: var(--base-text-weight-semibold);
+    --text-display-weight: var(--base-text-weight-medium);
+    --text-codeInline-shorthand: var(--text-codeInline-weight) var(--text-codeInline-size) var(--fontStack-monospace);
+    --text-codeBlock-shorthand: var(--text-codeBlock-weight) var(--text-codeBlock-size) / var(--text-codeBlock-lineHeight) var(--fontStack-monospace);
+    --text-caption-shorthand: var(--text-caption-weight) var(--text-caption-size) / var(--text-caption-lineHeight) var(--fontStack-sansSerif);
+    --text-body-shorthand-small: var(--text-body-weight) var(--text-body-size-small) / var(--text-body-lineHeight-small) var(--fontStack-sansSerif);
+    --text-body-shorthand-medium: var(--text-body-weight) var(--text-body-size-medium) / var(--text-body-lineHeight-medium) var(--fontStack-sansSerif);
+    --text-body-shorthand-large: var(--text-body-weight) var(--text-body-size-large) / var(--text-body-lineHeight-large) var(--fontStack-sansSerif);
+    --text-subtitle-shorthand: var(--text-subtitle-weight) var(--text-subtitle-size) / var(--text-subtitle-lineHeight) var(--fontStack-sansSerifDisplay);
+    --text-title-shorthand-small: var(--text-title-weight-small) var(--text-title-size-small) / var(--text-title-lineHeight-small) var(--fontStack-sansSerif);
+    --text-title-shorthand-medium: var(--text-title-weight-medium) var(--text-title-size-medium) / var(--text-title-lineHeight-medium) var(--fontStack-sansSerifDisplay);
+    --text-title-shorthand-large: var(--text-title-weight-large) var(--text-title-size-large) / var(--text-title-lineHeight-large) var(--fontStack-sansSerifDisplay);
+    --text-display-shorthand: var(--text-display-weight) var(--text-display-size) / var(--text-display-lineHeight) var(--fontStack-sansSerifDisplay);
+    --h00-size-mobile: 2.5rem;
+    --h0-size-mobile: 2rem;
+    --h1-size-mobile: 1.625rem;
+    --h2-size-mobile: 1.375rem;
+    --h3-size-mobile: 1.125rem;
+    --h00-size: 3rem;
+    --h0-size: 2.5rem;
+    --h1-size: 2rem;
+    --h2-size: 1.5rem;
+    --h3-size: 1.25rem;
+    --h4-size: 1rem;
+    --h5-size: 0.875rem;
+    --h6-size: 0.75rem;
+    --body-font-size: 0.875rem;
+    --font-size-small: 0.75rem;
+    --Layout-pane-width: 220px;
+    --Layout-content-width: 100%;
+    --Layout-template-columns: 1fr var(--Layout-pane-width);
+    --Layout-template-areas: "content pane";
+    --Layout-column-gap: var(--base-size-16);
+    --Layout-row-gap: var(--base-size-16);
+    --Layout-outer-spacing-x: 0px;
+    --Layout-outer-spacing-y: 0px;
+    --Layout-inner-spacing-min: 0px;
+    --Layout-inner-spacing-max: 0px;
+    --actionListContent-paddingBlock: var(--control-medium-paddingBlock);
+    --duration-fast: 80ms;
+    --easing-easeInOut: cubic-bezier(0.65, 0, 0.35, 1);
+    --growth-GhasTrial-dark-gradient: linear-gradient(267.91deg, #ffe57f 9.35%, #ff7170 96.48%);
+    --growth-GhasTrial-light-gradient: linear-gradient(267.91deg, #bc4c00 9.35%, #d42a32 96.48%);
+    --topicTag-borderColor: #ffffff00;
+    --highlight-neutral-bgColor: #fff8c5;
+    --page-header-bgColor: #f6f8fa;
+    --diffBlob-addition-fgColor-text: #1f2328;
+    --diffBlob-addition-fgColor-num: #1f2328;
+    --diffBlob-addition-bgColor-num: #d1f8d9;
+    --diffBlob-addition-bgColor-line: #dafbe1;
+    --diffBlob-addition-bgColor-word: #aceebb;
+    --diffBlob-deletion-fgColor-text: #1f2328;
+    --diffBlob-deletion-fgColor-num: #1f2328;
+    --diffBlob-deletion-bgColor-num: #ffcecb;
+    --diffBlob-deletion-bgColor-line: #ffebe9;
+    --diffBlob-deletion-bgColor-word: #ff818266;
+    --diffBlob-hunk-bgColor-num: #54aeff66;
+    --diffBlob-expander-iconColor: #59636e;
+    --codeMirror-fgColor: #1f2328;
+    --codeMirror-bgColor: #ffffff;
+    --codeMirror-gutters-bgColor: #ffffff;
+    --codeMirror-gutterMarker-fgColor-default: #ffffff;
+    --codeMirror-gutterMarker-fgColor-muted: #59636e;
+    --codeMirror-lineNumber-fgColor: #59636e;
+    --codeMirror-cursor-fgColor: #1f2328;
+    --codeMirror-selection-bgColor: #54aeff66;
+    --codeMirror-activeline-bgColor: #818b981f;
+    --codeMirror-matchingBracket-fgColor: #1f2328;
+    --codeMirror-lines-bgColor: #ffffff;
+    --codeMirror-syntax-fgColor-comment: #1f2328;
+    --codeMirror-syntax-fgColor-constant: #0550ae;
+    --codeMirror-syntax-fgColor-entity: #8250df;
+    --codeMirror-syntax-fgColor-keyword: #cf222e;
+    --codeMirror-syntax-fgColor-storage: #cf222e;
+    --codeMirror-syntax-fgColor-string: #0a3069;
+    --codeMirror-syntax-fgColor-support: #0550ae;
+    --codeMirror-syntax-fgColor-variable: #953800;
+    --header-fgColor-default: #ffffffb3;
+    --header-fgColor-logo: #ffffff;
+    --header-bgColor: #25292e;
+    --header-borderColor-divider: #818b98;
+    --headerSearch-bgColor: #25292e;
+    --headerSearch-borderColor: #818b98;
+    --data-blue-color-emphasis: #006edb;
+    --data-blue-color-muted: #d1f0ff;
+    --data-auburn-color-emphasis: #9d615c;
+    --data-auburn-color-muted: #f2e9e9;
+    --data-orange-color-emphasis: #eb670f;
+    --data-orange-color-muted: #ffe7d1;
+    --data-yellow-color-emphasis: #b88700;
+    --data-yellow-color-muted: #ffec9e;
+    --data-green-color-emphasis: #30a147;
+    --data-green-color-muted: #caf7ca;
+    --data-teal-color-emphasis: #179b9b;
+    --data-teal-color-muted: #c7f5ef;
+    --data-purple-color-emphasis: #894ceb;
+    --data-purple-color-muted: #f1e5ff;
+    --data-pink-color-emphasis: #ce2c85;
+    --data-pink-color-muted: #ffe5f1;
+    --data-red-color-emphasis: #df0c24;
+    --data-red-color-muted: #ffe2e0;
+    --data-gray-color-emphasis: #808fa3;
+    --data-gray-color-muted: #e8ecf2;
+    --display-blue-bgColor-muted: #d1f0ff;
+    --display-blue-bgColor-emphasis: #006edb;
+    --display-blue-fgColor: #005fcc;
+    --display-blue-borderColor-muted: #ade1ff;
+    --display-blue-borderColor-emphasis: #006edb;
+    --display-green-bgColor-muted: #caf7ca;
+    --display-green-bgColor-emphasis: #2c8141;
+    --display-green-fgColor: #2b6e3f;
+    --display-green-borderColor-muted: #9ceda0;
+    --display-green-borderColor-emphasis: #2c8141;
+    --display-orange-bgColor-muted: #ffe7d1;
+    --display-orange-bgColor-emphasis: #b8500f;
+    --display-orange-fgColor: #a24610;
+    --display-orange-borderColor-muted: #fecfaa;
+    --display-orange-borderColor-emphasis: #b8500f;
+    --display-purple-bgColor-muted: #f1e5ff;
+    --display-purple-bgColor-emphasis: #894ceb;
+    --display-purple-fgColor: #783ae4;
+    --display-purple-borderColor-muted: #e6d2fe;
+    --display-purple-borderColor-emphasis: #894ceb;
+    --display-plum-bgColor-muted: #f8e5ff;
+    --display-plum-bgColor-emphasis: #a830e8;
+    --display-plum-fgColor: #961edc;
+    --display-plum-borderColor-muted: #f0cdfe;
+    --display-plum-borderColor-emphasis: #a830e8;
+    --display-red-bgColor-muted: #ffe2e0;
+    --display-red-bgColor-emphasis: #df0c24;
+    --display-red-fgColor: #c50d28;
+    --display-red-borderColor-muted: #fecdcd;
+    --display-red-borderColor-emphasis: #df0c24;
+    --display-coral-bgColor-muted: #ffe5db;
+    --display-coral-bgColor-emphasis: #d43511;
+    --display-coral-fgColor: #ba2e12;
+    --display-coral-borderColor-muted: #fecebe;
+    --display-coral-borderColor-emphasis: #d43511;
+    --display-yellow-bgColor-muted: #ffec9e;
+    --display-yellow-bgColor-emphasis: #946a00;
+    --display-yellow-fgColor: #805900;
+    --display-yellow-borderColor-muted: #ffd642;
+    --display-yellow-borderColor-emphasis: #946a00;
+    --display-gray-bgColor-muted: #e8ecf2;
+    --display-gray-bgColor-emphasis: #647182;
+    --display-gray-fgColor: #5c6570;
+    --display-gray-borderColor-muted: #d2dae4;
+    --display-gray-borderColor-emphasis: #647182;
+    --display-auburn-bgColor-muted: #f2e9e9;
+    --display-auburn-bgColor-emphasis: #9d615c;
+    --display-auburn-fgColor: #8a5551;
+    --display-auburn-borderColor-muted: #e6d6d5;
+    --display-auburn-borderColor-emphasis: #9d615c;
+    --display-brown-bgColor-muted: #eeeae2;
+    --display-brown-bgColor-emphasis: #856d4c;
+    --display-brown-fgColor: #755f43;
+    --display-brown-borderColor-muted: #dfd7c8;
+    --display-brown-borderColor-emphasis: #856d4c;
+    --display-lemon-bgColor-muted: #f7eea1;
+    --display-lemon-bgColor-emphasis: #866e04;
+    --display-lemon-fgColor: #786002;
+    --display-lemon-borderColor-muted: #f0db3d;
+    --display-lemon-borderColor-emphasis: #866e04;
+    --display-olive-bgColor-muted: #f0f0ad;
+    --display-olive-bgColor-emphasis: #64762d;
+    --display-olive-fgColor: #56682c;
+    --display-olive-borderColor-muted: #dbe170;
+    --display-olive-borderColor-emphasis: #64762d;
+    --display-lime-bgColor-muted: #e3f2b5;
+    --display-lime-bgColor-emphasis: #527a29;
+    --display-lime-fgColor: #476c28;
+    --display-lime-borderColor-muted: #c7e580;
+    --display-lime-borderColor-emphasis: #527a29;
+    --display-pine-bgColor-muted: #bff8db;
+    --display-pine-bgColor-emphasis: #167e53;
+    --display-pine-fgColor: #156f4b;
+    --display-pine-borderColor-muted: #80efb9;
+    --display-pine-borderColor-emphasis: #167e53;
+    --display-teal-bgColor-muted: #c7f5ef;
+    --display-teal-bgColor-emphasis: #127e81;
+    --display-teal-fgColor: #106e75;
+    --display-teal-borderColor-muted: #89ebe1;
+    --display-teal-borderColor-emphasis: #127e81;
+    --display-cyan-bgColor-muted: #bdf4ff;
+    --display-cyan-bgColor-emphasis: #007b94;
+    --display-cyan-fgColor: #006a80;
+    --display-cyan-borderColor-muted: #7ae9ff;
+    --display-cyan-borderColor-emphasis: #007b94;
+    --display-indigo-bgColor-muted: #e5e9ff;
+    --display-indigo-bgColor-emphasis: #5a61e7;
+    --display-indigo-fgColor: #494edf;
+    --display-indigo-borderColor-muted: #d2d7fe;
+    --display-indigo-borderColor-emphasis: #5a61e7;
+    --display-pink-bgColor-muted: #ffe5f1;
+    --display-pink-bgColor-emphasis: #ce2c85;
+    --display-pink-fgColor: #b12f79;
+    --display-pink-borderColor-muted: #fdc9e2;
+    --display-pink-borderColor-emphasis: #ce2c85;
+    --avatar-bgColor: #ffffff;
+    --avatar-borderColor: #1f232826;
+    --avatar-shadow: 0px 0px 0px 2px #ffffffcc;
+    --avatarStack-fade-bgColor-default: #c8d1da;
+    --avatarStack-fade-bgColor-muted: #dae0e7;
+    --control-bgColor-rest: #f6f8fa;
+    --control-bgColor-hover: #eff2f5;
+    --control-bgColor-active: #e6eaef;
+    --control-bgColor-disabled: #eff2f5;
+    --control-bgColor-selected: #f6f8fa;
+    --control-fgColor-rest: #25292e;
+    --control-fgColor-placeholder: #59636e;
+    --control-fgColor-disabled: #818b98;
+    --control-borderColor-rest: #d1d9e0;
+    --control-borderColor-emphasis: #818b98;
+    --control-borderColor-disabled: #818b981a;
+    --control-borderColor-selected: #f6f8fa;
+    --control-borderColor-success: #1a7f37;
+    --control-borderColor-danger: #cf222e;
+    --control-borderColor-warning: #9a6700;
+    --control-iconColor-rest: #59636e;
+    --control-transparent-bgColor-rest: #ffffff00;
+    --control-transparent-bgColor-hover: #818b981a;
+    --control-transparent-bgColor-active: #818b9826;
+    --control-transparent-bgColor-disabled: #eff2f5;
+    --control-transparent-bgColor-selected: #818b9826;
+    --control-transparent-borderColor-rest: #ffffff00;
+    --control-transparent-borderColor-hover: #ffffff00;
+    --control-transparent-borderColor-active: #ffffff00;
+    --control-danger-fgColor-rest: #d1242f;
+    --control-danger-fgColor-hover: #d1242f;
+    --control-danger-bgColor-hover: #ffebe9;
+    --control-danger-bgColor-active: #ffebe966;
+    --control-checked-bgColor-rest: #0969da;
+    --control-checked-bgColor-hover: #0860ca;
+    --control-checked-bgColor-active: #0757ba;
+    --control-checked-bgColor-disabled: #818b98;
+    --control-checked-fgColor-rest: #ffffff;
+    --control-checked-fgColor-disabled: #ffffff;
+    --control-checked-borderColor-rest: #0969da;
+    --control-checked-borderColor-hover: #0860ca;
+    --control-checked-borderColor-active: #0757ba;
+    --control-checked-borderColor-disabled: #818b98;
+    --controlTrack-bgColor-rest: #e6eaef;
+    --controlTrack-bgColor-hover: #e0e6eb;
+    --controlTrack-bgColor-active: #dae0e7;
+    --controlTrack-bgColor-disabled: #818b98;
+    --controlTrack-fgColor-rest: #59636e;
+    --controlTrack-fgColor-disabled: #ffffff;
+    --controlTrack-borderColor-rest: #d1d9e0;
+    --controlTrack-borderColor-disabled: #818b98;
+    --controlKnob-bgColor-rest: #ffffff;
+    --controlKnob-bgColor-disabled: #eff2f5;
+    --controlKnob-bgColor-checked: #ffffff;
+    --controlKnob-borderColor-rest: #818b98;
+    --controlKnob-borderColor-disabled: #eff2f5;
+    --controlKnob-borderColor-checked: #0969da;
+    --counter-borderColor: #ffffff00;
+    --counter-bgColor-muted: #818b981f;
+    --counter-bgColor-emphasis: #59636e;
+    --button-default-fgColor-rest: #25292e;
+    --button-default-bgColor-rest: #f6f8fa;
+    --button-default-bgColor-hover: #eff2f5;
+    --button-default-bgColor-active: #e6eaef;
+    --button-default-bgColor-selected: #e6eaef;
+    --button-default-bgColor-disabled: #eff2f5;
+    --button-default-borderColor-rest: #d1d9e0;
+    --button-default-borderColor-hover: #d1d9e0;
+    --button-default-borderColor-active: #d1d9e0;
+    --button-default-borderColor-disabled: #818b981a;
+    --button-default-shadow-resting: 0px 1px 0px 0px #1f23280a;
+    --button-primary-fgColor-rest: #ffffff;
+    --button-primary-fgColor-disabled: #ffffffcc;
+    --button-primary-iconColor-rest: #ffffffcc;
+    --button-primary-bgColor-rest: #1f883d;
+    --button-primary-bgColor-hover: #1c8139;
+    --button-primary-bgColor-active: #197935;
+    --button-primary-bgColor-disabled: #95d8a6;
+    --button-primary-borderColor-rest: #1f232826;
+    --button-primary-borderColor-hover: #1f232826;
+    --button-primary-borderColor-active: #1f232826;
+    --button-primary-borderColor-disabled: #95d8a6;
+    --button-primary-shadow-selected: inset 0px 1px 0px 0px #002d114d;
+    --button-invisible-fgColor-rest: #59636e;
+    --button-invisible-fgColor-hover: #59636e;
+    --button-invisible-fgColor-disabled: #818b98;
+    --button-invisible-iconColor-rest: #59636e;
+    --button-invisible-iconColor-hover: #59636e;
+    --button-invisible-iconColor-disabled: #818b98;
+    --button-invisible-bgColor-rest: #ffffff00;
+    --button-invisible-bgColor-hover: #818b981a;
+    --button-invisible-bgColor-active: #818b9826;
+    --button-invisible-bgColor-disabled: #eff2f5;
+    --button-invisible-borderColor-rest: #ffffff00;
+    --button-invisible-borderColor-hover: #ffffff00;
+    --button-invisible-borderColor-disabled: #818b981a;
+    --button-outline-fgColor-rest: #0969da;
+    --button-outline-fgColor-hover: #ffffff;
+    --button-outline-fgColor-active: #ffffff;
+    --button-outline-fgColor-disabled: #0969da80;
+    --button-outline-bgColor-rest: #f6f8fa;
+    --button-outline-bgColor-hover: #0969da;
+    --button-outline-bgColor-active: #0757ba;
+    --button-outline-bgColor-disabled: #eff2f5;
+    --button-outline-borderColor-hover: #1f232826;
+    --button-outline-borderColor-active: #1f232826;
+    --button-outline-shadow-selected: inset 0px 1px 0px 0px #00215533;
+    --button-danger-fgColor-rest: #d1242f;
+    --button-danger-fgColor-hover: #ffffff;
+    --button-danger-fgColor-active: #ffffff;
+    --button-danger-fgColor-disabled: #d1242f80;
+    --button-danger-iconColor-rest: #d1242f;
+    --button-danger-iconColor-hover: #ffffff;
+    --button-danger-bgColor-rest: #f6f8fa;
+    --button-danger-bgColor-hover: #a40e26;
+    --button-danger-bgColor-active: #8b0820;
+    --button-danger-bgColor-disabled: #eff2f5;
+    --button-danger-borderColor-rest: #d1d9e0;
+    --button-danger-borderColor-hover: #1f232826;
+    --button-danger-borderColor-active: #1f232826;
+    --button-danger-shadow-selected: inset 0px 1px 0px 0px #4c001433;
+    --button-inactive-fgColor: #59636e;
+    --button-inactive-bgColor: #e6eaef;
+    --button-star-iconColor: #eac54f;
+    --buttonCounter-default-bgColor-rest: #818b981f;
+    --buttonCounter-invisible-bgColor-rest: #818b981f;
+    --buttonCounter-primary-bgColor-rest: #002d1133;
+    --buttonCounter-outline-bgColor-rest: #0969da1a;
+    --buttonCounter-outline-bgColor-hover: #ffffff33;
+    --buttonCounter-outline-bgColor-disabled: #0969da0d;
+    --buttonCounter-outline-fgColor-rest: #0550ae;
+    --buttonCounter-outline-fgColor-hover: #ffffff;
+    --buttonCounter-outline-fgColor-disabled: #0969da80;
+    --buttonCounter-danger-bgColor-hover: #ffffff33;
+    --buttonCounter-danger-bgColor-disabled: #cf222e0d;
+    --buttonCounter-danger-bgColor-rest: #cf222e1a;
+    --buttonCounter-danger-fgColor-rest: #c21c2c;
+    --buttonCounter-danger-fgColor-hover: #ffffff;
+    --buttonCounter-danger-fgColor-disabled: #d1242f80;
+    --reactionButton-selected-bgColor-rest: #ddf4ff;
+    --reactionButton-selected-bgColor-hover: #caecff;
+    --reactionButton-selected-fgColor-rest: #0969da;
+    --reactionButton-selected-fgColor-hover: #0550ae;
+    --focus-outlineColor: #0969da;
+    --focus-outline: #0969da solid 2px;
+    --menu-bgColor-active: #ffffff00;
+    --overlay-bgColor: #ffffff;
+    --overlay-borderColor: #d1d9e080;
+    --overlay-backdrop-bgColor: #c8d1da66;
+    --selectMenu-borderColor: #ffffff00;
+    --selectMenu-bgColor-active: #b6e3ff;
+    --sideNav-bgColor-selected: #ffffff;
+    --skeletonLoader-bgColor: #f6f8fa;
+    --timelineBadge-bgColor: #f6f8fa;
+    --treeViewItem-leadingVisual-iconColor-rest: #54aeff;
+    --underlineNav-borderColor-active: #fd8c73;
+    --underlineNav-borderColor-hover: #d1d9e0b3;
+    --underlineNav-iconColor-rest: #59636e;
+    --selection-bgColor: #0969da33;
+    --card-bgColor: #ffffff;
+    --label-green-bgColor-rest: #caf7ca;
+    --label-green-bgColor-hover: #9ceda0;
+    --label-green-bgColor-active: #54d961;
+    --label-green-fgColor-rest: #2b6e3f;
+    --label-green-fgColor-hover: #285c3b;
+    --label-green-fgColor-active: #254b34;
+    --label-orange-bgColor-rest: #ffe7d1;
+    --label-orange-bgColor-hover: #fecfaa;
+    --label-orange-bgColor-active: #fbaf74;
+    --label-orange-fgColor-rest: #a24610;
+    --label-orange-fgColor-hover: #8d3c11;
+    --label-orange-fgColor-active: #70300f;
+    --label-purple-bgColor-rest: #f1e5ff;
+    --label-purple-bgColor-hover: #e6d2fe;
+    --label-purple-bgColor-active: #d1b1fc;
+    --label-purple-fgColor-rest: #783ae4;
+    --label-purple-fgColor-hover: #6223d7;
+    --label-purple-fgColor-active: #4f21ab;
+    --label-red-bgColor-rest: #ffe2e0;
+    --label-red-bgColor-hover: #fecdcd;
+    --label-red-bgColor-active: #fda5a7;
+    --label-red-fgColor-rest: #c50d28;
+    --label-red-fgColor-hover: #a60c29;
+    --label-red-fgColor-active: #880c27;
+    --label-yellow-bgColor-rest: #ffec9e;
+    --label-yellow-bgColor-hover: #ffd642;
+    --label-yellow-bgColor-active: #ebb400;
+    --label-yellow-fgColor-rest: #805900;
+    --label-yellow-fgColor-hover: #704d00;
+    --label-yellow-fgColor-active: #5c3d00;
+    --label-gray-bgColor-rest: #e8ecf2;
+    --label-gray-bgColor-hover: #d2dae4;
+    --label-gray-bgColor-active: #b4c0cf;
+    --label-gray-fgColor-rest: #5c6570;
+    --label-gray-fgColor-hover: #4e535a;
+    --label-gray-fgColor-active: #424448;
+    --label-auburn-bgColor-rest: #f2e9e9;
+    --label-auburn-bgColor-hover: #e6d6d5;
+    --label-auburn-bgColor-active: #d4b7b5;
+    --label-auburn-fgColor-rest: #8a5551;
+    --label-auburn-fgColor-hover: #744744;
+    --label-auburn-fgColor-active: #5d3937;
+    --label-brown-bgColor-rest: #eeeae2;
+    --label-brown-bgColor-hover: #dfd7c8;
+    --label-brown-bgColor-active: #cbbda4;
+    --label-brown-fgColor-rest: #755f43;
+    --label-brown-fgColor-hover: #64513a;
+    --label-brown-fgColor-active: #51412f;
+    --label-lemon-bgColor-rest: #f7eea1;
+    --label-lemon-bgColor-hover: #f0db3d;
+    --label-lemon-bgColor-active: #d8bd0e;
+    --label-lemon-fgColor-rest: #786002;
+    --label-lemon-fgColor-hover: #654f01;
+    --label-lemon-fgColor-active: #523f00;
+    --label-olive-bgColor-rest: #f0f0ad;
+    --label-olive-bgColor-hover: #dbe170;
+    --label-olive-bgColor-active: #b9c832;
+    --label-olive-fgColor-rest: #56682c;
+    --label-olive-fgColor-hover: #495a2b;
+    --label-olive-fgColor-active: #3b4927;
+    --label-lime-bgColor-rest: #e3f2b5;
+    --label-lime-bgColor-hover: #c7e580;
+    --label-lime-bgColor-active: #9bd039;
+    --label-lime-fgColor-rest: #476c28;
+    --label-lime-fgColor-hover: #3a5b25;
+    --label-lime-fgColor-active: #2f4a21;
+    --label-pine-bgColor-rest: #bff8db;
+    --label-pine-bgColor-hover: #80efb9;
+    --label-pine-bgColor-active: #1dd781;
+    --label-pine-fgColor-rest: #156f4b;
+    --label-pine-fgColor-hover: #135d41;
+    --label-pine-fgColor-active: #114b36;
+    --label-teal-bgColor-rest: #c7f5ef;
+    --label-teal-bgColor-hover: #89ebe1;
+    --label-teal-bgColor-active: #22d3c7;
+    --label-teal-fgColor-rest: #106e75;
+    --label-teal-fgColor-hover: #0d5b63;
+    --label-teal-fgColor-active: #0a4852;
+    --label-cyan-bgColor-rest: #bdf4ff;
+    --label-cyan-bgColor-hover: #7ae9ff;
+    --label-cyan-bgColor-active: #00d0fa;
+    --label-cyan-fgColor-rest: #006a80;
+    --label-cyan-fgColor-hover: #00596b;
+    --label-cyan-fgColor-active: #004857;
+    --label-indigo-bgColor-rest: #e5e9ff;
+    --label-indigo-bgColor-hover: #d2d7fe;
+    --label-indigo-bgColor-active: #b1b9fb;
+    --label-indigo-fgColor-rest: #494edf;
+    --label-indigo-fgColor-hover: #393cd5;
+    --label-indigo-fgColor-active: #2d2db4;
+    --label-blue-bgColor-rest: #d1f0ff;
+    --label-blue-bgColor-hover: #ade1ff;
+    --label-blue-bgColor-active: #75c8ff;
+    --label-blue-fgColor-rest: #005fcc;
+    --label-blue-fgColor-hover: #004db3;
+    --label-blue-fgColor-active: #003d99;
+    --label-plum-bgColor-rest: #f8e5ff;
+    --label-plum-bgColor-hover: #f0cdfe;
+    --label-plum-bgColor-active: #e2a7fb;
+    --label-plum-fgColor-rest: #961edc;
+    --label-plum-fgColor-hover: #7d1eb8;
+    --label-plum-fgColor-active: #651d96;
+    --label-pink-bgColor-rest: #ffe5f1;
+    --label-pink-bgColor-hover: #fdc9e2;
+    --label-pink-bgColor-active: #f8a5cf;
+    --label-pink-fgColor-rest: #b12f79;
+    --label-pink-fgColor-hover: #8e2e66;
+    --label-pink-fgColor-active: #6e2b53;
+    --label-coral-bgColor-rest: #ffe5db;
+    --label-coral-bgColor-hover: #fecebe;
+    --label-coral-bgColor-active: #fcab92;
+    --label-coral-fgColor-rest: #ba2e12;
+    --label-coral-fgColor-hover: #9b2712;
+    --label-coral-fgColor-active: #7e2011;
+    --tooltip-bgColor: #25292e;
+    --tooltip-fgColor: #ffffff;
+    --fgColor-default: #1f2328;
+    --fgColor-muted: #59636e;
+    --fgColor-onEmphasis: #ffffff;
+    --fgColor-onInverse: #ffffff;
+    --fgColor-white: #ffffff;
+    --fgColor-black: #1f2328;
+    --fgColor-disabled: #818b98;
+    --fgColor-link: #0969da;
+    --fgColor-neutral: #59636e;
+    --fgColor-accent: #0969da;
+    --fgColor-success: #1a7f37;
+    --fgColor-open: #1a7f37;
+    --fgColor-attention: #9a6700;
+    --fgColor-severe: #bc4c00;
+    --fgColor-danger: #d1242f;
+    --fgColor-closed: #d1242f;
+    --fgColor-done: #8250df;
+    --fgColor-upsell: #8250df;
+    --fgColor-sponsors: #bf3989;
+    --bgColor-default: #ffffff;
+    --bgColor-muted: #f6f8fa;
+    --bgColor-inset: #f6f8fa;
+    --bgColor-emphasis: #25292e;
+    --bgColor-inverse: #25292e;
+    --bgColor-white: #ffffff;
+    --bgColor-black: #1f2328;
+    --bgColor-disabled: #eff2f5;
+    --bgColor-transparent: #ffffff00;
+    --bgColor-neutral-muted: #818b981f;
+    --bgColor-neutral-emphasis: #59636e;
+    --bgColor-accent-muted: #ddf4ff;
+    --bgColor-accent-emphasis: #0969da;
+    --bgColor-success-muted: #dafbe1;
+    --bgColor-success-emphasis: #1f883d;
+    --bgColor-open-muted: #dafbe1;
+    --bgColor-open-emphasis: #1f883d;
+    --bgColor-attention-muted: #fff8c5;
+    --bgColor-attention-emphasis: #9a6700;
+    --bgColor-severe-muted: #fff1e5;
+    --bgColor-severe-emphasis: #bc4c00;
+    --bgColor-danger-muted: #ffebe9;
+    --bgColor-danger-emphasis: #cf222e;
+    --bgColor-closed-muted: #ffebe9;
+    --bgColor-closed-emphasis: #cf222e;
+    --bgColor-done-muted: #fbefff;
+    --bgColor-done-emphasis: #8250df;
+    --bgColor-upsell-muted: #fbefff;
+    --bgColor-upsell-emphasis: #8250df;
+    --bgColor-sponsors-muted: #ffeff7;
+    --bgColor-sponsors-emphasis: #bf3989;
+    --borderColor-default: #d1d9e0;
+    --borderColor-muted: #d1d9e0b3;
+    --borderColor-emphasis: #818b98;
+    --borderColor-disabled: #818b981a;
+    --borderColor-transparent: #ffffff00;
+    --borderColor-translucent: #1f232826;
+    --borderColor-neutral-muted: #d1d9e0b3;
+    --borderColor-neutral-emphasis: #59636e;
+    --borderColor-accent-muted: #54aeff66;
+    --borderColor-accent-emphasis: #0969da;
+    --borderColor-success-muted: #4ac26b66;
+    --borderColor-success-emphasis: #1a7f37;
+    --borderColor-open-muted: #4ac26b66;
+    --borderColor-open-emphasis: #1a7f37;
+    --borderColor-attention-muted: #d4a72c66;
+    --borderColor-attention-emphasis: #9a6700;
+    --borderColor-severe-muted: #fb8f4466;
+    --borderColor-severe-emphasis: #bc4c00;
+    --borderColor-danger-muted: #ff818266;
+    --borderColor-danger-emphasis: #cf222e;
+    --borderColor-closed-muted: #ff818266;
+    --borderColor-closed-emphasis: #cf222e;
+    --borderColor-done-muted: #c297ff66;
+    --borderColor-done-emphasis: #8250df;
+    --borderColor-upsell-muted: #c297ff66;
+    --borderColor-upsell-emphasis: #8250df;
+    --borderColor-sponsors-muted: #ff80c866;
+    --borderColor-sponsors-emphasis: #bf3989;
+    --color-ansi-black: #1f2328;
+    --color-ansi-black-bright: #393f46;
+    --color-ansi-white: #59636e;
+    --color-ansi-white-bright: #818b98;
+    --color-ansi-gray: #59636e;
+    --color-ansi-red: #cf222e;
+    --color-ansi-red-bright: #a40e26;
+    --color-ansi-green: #116329;
+    --color-ansi-green-bright: #1a7f37;
+    --color-ansi-yellow: #4d2d00;
+    --color-ansi-yellow-bright: #633c01;
+    --color-ansi-blue: #0969da;
+    --color-ansi-blue-bright: #218bff;
+    --color-ansi-magenta: #8250df;
+    --color-ansi-magenta-bright: #a475f9;
+    --color-ansi-cyan: #1b7c83;
+    --color-ansi-cyan-bright: #3192aa;
+    --color-prettylights-syntax-comment: #59636e;
+    --color-prettylights-syntax-constant: #0550ae;
+    --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+    --color-prettylights-syntax-entity: #6639ba;
+    --color-prettylights-syntax-storage-modifier-import: #1f2328;
+    --color-prettylights-syntax-entity-tag: #0550ae;
+    --color-prettylights-syntax-keyword: #cf222e;
+    --color-prettylights-syntax-string: #0a3069;
+    --color-prettylights-syntax-variable: #953800;
+    --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+    --color-prettylights-syntax-brackethighlighter-angle: #59636e;
+    --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+    --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+    --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+    --color-prettylights-syntax-carriage-return-bg: #cf222e;
+    --color-prettylights-syntax-string-regexp: #116329;
+    --color-prettylights-syntax-markup-list: #3b2300;
+    --color-prettylights-syntax-markup-heading: #0550ae;
+    --color-prettylights-syntax-markup-italic: #1f2328;
+    --color-prettylights-syntax-markup-bold: #1f2328;
+    --color-prettylights-syntax-markup-deleted-text: #82071e;
+    --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+    --color-prettylights-syntax-markup-inserted-text: #116329;
+    --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+    --color-prettylights-syntax-markup-changed-text: #953800;
+    --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+    --color-prettylights-syntax-markup-ignored-text: #d1d9e0;
+    --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+    --color-prettylights-syntax-meta-diff-range: #8250df;
+    --color-prettylights-syntax-sublimelinter-gutter-mark: #818b98;
+    --shadow-inset: inset 0px 1px 0px 0px #1f23280a;
+    --shadow-resting-xsmall: 0px 1px 0px 0px #1f23281a;
+    --shadow-resting-small: 0px 1px 0px 0px #1f23280a;
+    --shadow-resting-medium: 0px 3px 6px 0px #25292e1f;
+    --shadow-floating-small: 0px 0px 0px 1px #d1d9e080, 0px 6px 12px -3px #25292e0a, 0px 6px 18px 0px #25292e1f;
+    --shadow-floating-medium: 0px 0px 0px 1px #d1d9e0, 0px 8px 16px -4px #25292e14, 0px 4px 32px -4px #25292e14, 0px 24px 48px -12px #25292e14, 0px 48px 96px -24px #25292e14;
+    --shadow-floating-large: 0px 0px 0px 1px #d1d9e0, 0px 40px 80px 0px #25292e3d;
+    --shadow-floating-xlarge: 0px 0px 0px 1px #d1d9e0, 0px 56px 112px 0px #25292e52;
+    --shadow-floating-legacy: 0px 6px 12px -3px #25292e0a, 0px 6px 18px 0px #25292e1f;
+    color-scheme: light;
+    --color-workflow-card-bg: var(--bgColor-default, var(--color-scale-white));
+    --color-workflow-card-header-shadow: rgba(0, 0, 0, 0);
+    --color-bg-discussions-row-emoji-box: rgba(209, 213, 218, 0.5);
+    --color-notifications-row-read-bg: var(--bgColor-muted, var(--color-canvas-subtle));
+    --color-notifications-row-bg: var(--bgColor-white, var(--color-scale-white));
+    --color-calendar-halloween-graph-day-L1-bg: #ffee4a;
+    --color-calendar-halloween-graph-day-L2-bg: #ffc501;
+    --color-calendar-halloween-graph-day-L3-bg: #fe9600;
+    --color-calendar-halloween-graph-day-L4-bg: #03001c;
+    --color-calendar-winter-graph-day-L1-bg: #B6E3FF;
+    --color-calendar-winter-graph-day-L2-bg: #54AEFF;
+    --color-calendar-winter-graph-day-L3-bg: #0969DA;
+    --color-calendar-winter-graph-day-L4-bg: #0A3069;
+    --color-calendar-graph-day-bg: #ebedf0;
+    --color-calendar-graph-day-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L1-bg: #9be9a8;
+    --color-calendar-graph-day-L2-bg: #40c463;
+    --color-calendar-graph-day-L3-bg: #30a14e;
+    --color-calendar-graph-day-L4-bg: #216e39;
+    --color-calendar-graph-day-L1-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L2-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L3-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L4-border: rgba(27, 31, 35, 0.06);
+    --color-user-mention-fg: var(--fgColor-default, var(--color-fg-default));
+    --color-marketing-icon-primary: #218bff;
+    --color-marketing-icon-secondary: #54aeff;
+    --color-project-header-bg: #24292f;
+    --color-project-sidebar-bg: var(--bgColor-white, var(--color-scale-white));
+    --color-project-gradient-in: var(--bgColor-white, var(--color-scale-white));
+    --color-project-gradient-out: rgba(255, 255, 255, 0);
+    --color-diff-blob-selected-line-highlight-mix-blend-mode: multiply;
+    --color-text-white: var(--fgColor-white, var(--color-scale-white));
+    --color-mktg-btn-shadow-outline: rgba(0, 0, 0, 0.15) 0 0 0 1px inset;
+    --color-mktg-btn-bg: #1b1f23;
+    --color-mktg-btn-shadow-focus: rgba(0, 0, 0, 0.15) 0 0 0 4px;
+    --color-mktg-btn-shadow-hover: 0 3px 2px rgba(0, 0, 0, 0.07), 0 7px 5px rgba(0, 0, 0, 0.04), 0 12px 10px rgba(0, 0, 0, 0.03), 0 22px 18px rgba(0, 0, 0, 0.03), 0 42px 33px rgba(0, 0, 0, 0.02), 0 100px 80px rgba(0, 0, 0, 0.02);
+    --color-mktg-btn-shadow-hover-muted: rgba(0, 0, 0, 0.7) 0 0 0 2px inset;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: var(--body-font-size, 14px);
+    line-height: 1.5;
+    color: var(--fgColor-default, var(--color-fg-default));
+    background-color: var(--bgColor-default, var(--color-canvas-default));
+    overflow-wrap: break-word;
+    --dialog-scrollgutter: 13px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {    
+      color-scheme: dark;
+    }
+    body {
+      -webkit-text-size-adjust: 100%;
+      --rgh-green: var(--fgColor-success, var(--color-success-fg, #1a7f37));
+      --rgh-red: var(--fgColor-danger, var(--color-danger-fg, #cf222e));
+      --rgh-border-color: var(--borderColor-muted,
+          var(--color-border-muted, #d8dee4));
+      --rgh-background: var(--bgColor-default, var(--color-canvas-default, #fff));
+      --rgh-heat-color: #c24e00;
+      --tab-size: 4;
+      tab-size: var(--tab-size);
+      --rgh-limit-color: var(--rgh-red);
+      --rgh-table-input-size: 20px;
+      --base-size-2: 0.125rem;
+      --base-size-4: 0.25rem;
+      --base-size-6: 0.375rem;
+      --base-size-8: 0.5rem;
+      --base-size-12: 0.75rem;
+      --base-size-16: 1rem;
+      --base-size-20: 1.25rem;
+      --base-size-24: 1.5rem;
+      --base-size-28: 1.75rem;
+      --base-size-32: 2rem;
+      --base-size-36: 2.25rem;
+      --base-size-40: 2.5rem;
+      --base-size-44: 2.75rem;
+      --base-size-48: 3rem;
+      --base-size-64: 4rem;
+      --base-size-80: 5rem;
+      --base-size-96: 6rem;
+      --base-size-112: 7rem;
+      --base-size-128: 8rem;
+      --base-text-weight-light: 300;
+      --base-text-weight-normal: 400;
+      --base-text-weight-medium: 500;
+      --base-text-weight-semibold: 600;
+      --boxShadow-thin: inset 0 0 0 max(1px, 0.0625rem);
+      --boxShadow-thick: inset 0 0 0 max(2px, 0.125rem);
+      --boxShadow-thicker: inset 0 0 0 max(4px, 0.25rem);
+      --borderWidth-thin: max(1px, 0.0625rem);
+      --borderWidth-thick: max(2px, 0.125rem);
+      --borderWidth-thicker: max(4px, 0.25rem);
+      --borderRadius-small: 0.1875rem;
+      --borderRadius-medium: 0.375rem;
+      --borderRadius-large: 0.75rem;
+      --borderRadius-full: 624.9375rem;
+      --outline-focus-offset: -0.125rem;
+      --outline-focus-width: 0.125rem;
+      --breakpoint-xsmall: 20rem;
+      --breakpoint-small: 34rem;
+      --breakpoint-medium: 48rem;
+      --breakpoint-large: 63.25rem;
+      --breakpoint-xlarge: 80rem;
+      --breakpoint-xxlarge: 87.5rem;
+      --control-minTarget-auto: 1rem;
+      --controlStack-small-gap-auto: 0.5rem;
+      --controlStack-medium-gap-auto: 0.5rem;
+      --control-minTarget-fine: 1rem;
+      --control-minTarget-coarse: 2.75rem;
+      --control-xsmall-size: 1.5rem;
+      --control-xsmall-lineBoxHeight: 1.25rem;
+      --control-xsmall-paddingBlock: 0.125rem;
+      --control-xsmall-paddingInline-condensed: 0.25rem;
+      --control-xsmall-paddingInline-normal: 0.5rem;
+      --control-xsmall-paddingInline-spacious: 0.75rem;
+      --control-xsmall-gap: 0.25rem;
+      --control-small-size: 1.75rem;
+      --control-small-lineBoxHeight: 1.25rem;
+      --control-small-paddingBlock: 0.25rem;
+      --control-small-paddingInline-condensed: 0.5rem;
+      --control-small-paddingInline-normal: 0.75rem;
+      --control-small-gap: 0.25rem;
+      --control-medium-size: 2rem;
+      --control-medium-lineBoxHeight: 1.25rem;
+      --control-medium-paddingBlock: 0.375rem;
+      --control-medium-paddingInline-condensed: 0.5rem;
+      --control-medium-paddingInline-normal: 0.75rem;
+      --control-medium-paddingInline-spacious: 1rem;
+      --control-medium-gap: 0.5rem;
+      --control-large-size: 2.5rem;
+      --control-large-lineBoxHeight: 1.25rem;
+      --control-large-paddingBlock: 0.625rem;
+      --control-large-paddingInline-normal: 0.75rem;
+      --control-large-paddingInline-spacious: 1rem;
+      --control-large-gap: 0.5rem;
+      --control-xlarge-size: 3rem;
+      --control-xlarge-lineBoxHeight: 1.25rem;
+      --control-xlarge-paddingBlock: 0.875rem;
+      --control-xlarge-paddingInline-normal: 0.75rem;
+      --control-xlarge-paddingInline-spacious: 1rem;
+      --control-xlarge-gap: 0.5rem;
+      --controlStack-small-gap-condensed: 0.5rem;
+      --controlStack-small-gap-spacious: 1rem;
+      --controlStack-medium-gap-condensed: 0.5rem;
+      --controlStack-medium-gap-spacious: 0.75rem;
+      --controlStack-large-gap-auto: 0.5rem;
+      --controlStack-large-gap-condensed: 0.5rem;
+      --controlStack-large-gap-spacious: 0.75rem;
+      --space-xxsmall: 0.125rem;
+      --space-xsmall: 0.25rem;
+      --space-small: 0.375rem;
+      --space-medium: 0.5rem;
+      --space-large: 0.75rem;
+      --space-xlarge: 1rem;
+      --spinner-strokeWidth-default: 0.125rem;
+      --spinner-size-small: 1rem;
+      --spinner-size-medium: 2rem;
+      --spinner-size-large: 4rem;
+      --stack-padding-condensed: 0.5rem;
+      --stack-padding-normal: 1rem;
+      --stack-padding-spacious: 1.5rem;
+      --stack-gap-condensed: 0.5rem;
+      --stack-gap-normal: 1rem;
+      --stack-gap-spacious: 1.5rem;
+      --overlay-width-xsmall: 12rem;
+      --overlay-width-small: 20rem;
+      --overlay-width-medium: 30rem;
+      --overlay-width-large: 40rem;
+      --overlay-width-xlarge: 60rem;
+      --overlay-height-small: 16rem;
+      --overlay-height-medium: 20rem;
+      --overlay-height-large: 27rem;
+      --overlay-height-xlarge: 37.5rem;
+      --overlay-padding-normal: 1rem;
+      --overlay-padding-condensed: 0.5rem;
+      --overlay-paddingBlock-condensed: 0.25rem;
+      --overlay-paddingBlock-normal: 0.75rem;
+      --overlay-borderRadius: 0.375rem;
+      --overlay-offset: 0.25rem;
+      --text-codeInline-size: 0.9285em;
+      --text-codeBlock-lineHeight: 1.5385;
+      --text-codeBlock-size: 0.8125rem;
+      --text-caption-lineHeight: 1.3333;
+      --text-caption-size: 0.75rem;
+      --text-body-lineHeight-small: 1.6666;
+      --text-body-lineHeight-medium: 1.4285;
+      --text-body-lineHeight-large: 1.5;
+      --text-body-size-small: 0.75rem;
+      --text-body-size-medium: 0.875rem;
+      --text-body-size-large: 1rem;
+      --text-subtitle-lineHeight: 1.6;
+      --text-subtitle-size: 1.25rem;
+      --text-title-lineHeight-small: 1.5;
+      --text-title-lineHeight-medium: 1.6;
+      --text-title-lineHeight-large: 1.5;
+      --text-title-size-small: 1rem;
+      --text-title-size-medium: 1.25rem;
+      --text-title-size-large: 2rem;
+      --text-display-lineHeight: 1.4;
+      --text-display-size: 2.5rem;
+      --text-display-lineBoxHeight: 1.4;
+      --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+      --fontStack-sansSerifDisplay: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --fontStack-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --text-codeInline-weight: var(--base-text-weight-normal);
+      --text-codeBlock-weight: var(--base-text-weight-normal);
+      --text-caption-weight: var(--base-text-weight-normal);
+      --text-body-weight: var(--base-text-weight-normal);
+      --text-subtitle-weight: var(--base-text-weight-normal);
+      --text-title-weight-small: var(--base-text-weight-semibold);
+      --text-title-weight-medium: var(--base-text-weight-semibold);
+      --text-title-weight-large: var(--base-text-weight-semibold);
+      --text-display-weight: var(--base-text-weight-medium);
+      --text-codeInline-shorthand: var(--text-codeInline-weight) var(--text-codeInline-size) var(--fontStack-monospace);
+      --text-codeBlock-shorthand: var(--text-codeBlock-weight) var(--text-codeBlock-size) / var(--text-codeBlock-lineHeight) var(--fontStack-monospace);
+      --text-caption-shorthand: var(--text-caption-weight) var(--text-caption-size) / var(--text-caption-lineHeight) var(--fontStack-sansSerif);
+      --text-body-shorthand-small: var(--text-body-weight) var(--text-body-size-small) / var(--text-body-lineHeight-small) var(--fontStack-sansSerif);
+      --text-body-shorthand-medium: var(--text-body-weight) var(--text-body-size-medium) / var(--text-body-lineHeight-medium) var(--fontStack-sansSerif);
+      --text-body-shorthand-large: var(--text-body-weight) var(--text-body-size-large) / var(--text-body-lineHeight-large) var(--fontStack-sansSerif);
+      --text-subtitle-shorthand: var(--text-subtitle-weight) var(--text-subtitle-size) / var(--text-subtitle-lineHeight) var(--fontStack-sansSerifDisplay);
+      --text-title-shorthand-small: var(--text-title-weight-small) var(--text-title-size-small) / var(--text-title-lineHeight-small) var(--fontStack-sansSerif);
+      --text-title-shorthand-medium: var(--text-title-weight-medium) var(--text-title-size-medium) / var(--text-title-lineHeight-medium) var(--fontStack-sansSerifDisplay);
+      --text-title-shorthand-large: var(--text-title-weight-large) var(--text-title-size-large) / var(--text-title-lineHeight-large) var(--fontStack-sansSerifDisplay);
+      --text-display-shorthand: var(--text-display-weight) var(--text-display-size) / var(--text-display-lineHeight) var(--fontStack-sansSerifDisplay);
+      --h00-size-mobile: 2.5rem;
+      --h0-size-mobile: 2rem;
+      --h1-size-mobile: 1.625rem;
+      --h2-size-mobile: 1.375rem;
+      --h3-size-mobile: 1.125rem;
+      --h00-size: 3rem;
+      --h0-size: 2.5rem;
+      --h1-size: 2rem;
+      --h2-size: 1.5rem;
+      --h3-size: 1.25rem;
+      --h4-size: 1rem;
+      --h5-size: 0.875rem;
+      --h6-size: 0.75rem;
+      --body-font-size: 0.875rem;
+      --font-size-small: 0.75rem;
+      --Layout-pane-width: 220px;
+      --Layout-content-width: 100%;
+      --Layout-template-columns: 1fr var(--Layout-pane-width);
+      --Layout-template-areas: "content pane";
+      --Layout-column-gap: var(--base-size-16);
+      --Layout-row-gap: var(--base-size-16);
+      --Layout-outer-spacing-x: 0px;
+      --Layout-outer-spacing-y: 0px;
+      --Layout-inner-spacing-min: 0px;
+      --Layout-inner-spacing-max: 0px;
+      --actionListContent-paddingBlock: var(--control-medium-paddingBlock);
+      --duration-fast: 80ms;
+      --easing-easeInOut: cubic-bezier(0.65, 0, 0.35, 1);
+      --growth-GhasTrial-dark-gradient: linear-gradient(267.91deg, #ffe57f 9.35%, #ff7170 96.48%);
+      --growth-GhasTrial-light-gradient: linear-gradient(267.91deg, #bc4c00 9.35%, #d42a32 96.48%);
+      --button-outline-borderColor-active: #1f232826;
+      --focus-outline: #0969da solid 2px;
+      --topicTag-borderColor: #00000000;
+      --highlight-neutral-bgColor: #d2992266;
+      --page-header-bgColor: #0d1117;
+      --diffBlob-addition-fgColor-text: #f0f6fc;
+      --diffBlob-addition-fgColor-num: #f0f6fc;
+      --diffBlob-addition-bgColor-num: #3fb9504d;
+      --diffBlob-addition-bgColor-line: #2ea04326;
+      --diffBlob-addition-bgColor-word: #2ea04366;
+      --diffBlob-deletion-fgColor-text: #f0f6fc;
+      --diffBlob-deletion-fgColor-num: #f0f6fc;
+      --diffBlob-deletion-bgColor-num: #f851494d;
+      --diffBlob-deletion-bgColor-line: #f8514926;
+      --diffBlob-deletion-bgColor-word: #f8514966;
+      --diffBlob-hunk-bgColor-num: #388bfd66;
+      --diffBlob-expander-iconColor: #9198a1;
+      --codeMirror-fgColor: #f0f6fc;
+      --codeMirror-bgColor: #0d1117;
+      --codeMirror-gutters-bgColor: #0d1117;
+      --codeMirror-gutterMarker-fgColor-default: #0d1117;
+      --codeMirror-gutterMarker-fgColor-muted: #9198a1;
+      --codeMirror-lineNumber-fgColor: #9198a1;
+      --codeMirror-cursor-fgColor: #f0f6fc;
+      --codeMirror-selection-bgColor: #388bfd66;
+      --codeMirror-activeline-bgColor: #656c7633;
+      --codeMirror-matchingBracket-fgColor: #f0f6fc;
+      --codeMirror-lines-bgColor: #0d1117;
+      --codeMirror-syntax-fgColor-comment: #656c76;
+      --codeMirror-syntax-fgColor-constant: #79c0ff;
+      --codeMirror-syntax-fgColor-entity: #d2a8ff;
+      --codeMirror-syntax-fgColor-keyword: #ff7b72;
+      --codeMirror-syntax-fgColor-storage: #ff7b72;
+      --codeMirror-syntax-fgColor-string: #a5d6ff;
+      --codeMirror-syntax-fgColor-support: #79c0ff;
+      --codeMirror-syntax-fgColor-variable: #ffa657;
+      --header-fgColor-default: #ffffffb3;
+      --header-fgColor-logo: #f0f6fc;
+      --header-bgColor: #151b23f2;
+      --header-borderColor-divider: #656c76;
+      --headerSearch-bgColor: #0d1117;
+      --headerSearch-borderColor: #2a313c;
+      --data-blue-color-emphasis: #0576ff;
+      --data-blue-color-muted: #001a47;
+      --data-auburn-color-emphasis: #a86f6b;
+      --data-auburn-color-muted: #271817;
+      --data-orange-color-emphasis: #984b10;
+      --data-orange-color-muted: #311708;
+      --data-yellow-color-emphasis: #895906;
+      --data-yellow-color-muted: #2e1a00;
+      --data-green-color-emphasis: #2f6f37;
+      --data-green-color-muted: #122117;
+      --data-teal-color-emphasis: #106c70;
+      --data-teal-color-muted: #041f25;
+      --data-purple-color-emphasis: #975bf1;
+      --data-purple-color-muted: #211047;
+      --data-pink-color-emphasis: #d34591;
+      --data-pink-color-muted: #2d1524;
+      --data-red-color-emphasis: #eb3342;
+      --data-red-color-muted: #3c0614;
+      --data-gray-color-emphasis: #576270;
+      --data-gray-color-muted: #1c1c1c;
+      --display-blue-bgColor-muted: #001a47;
+      --display-blue-bgColor-emphasis: #005bd1;
+      --display-blue-fgColor: #4da0ff;
+      --display-blue-borderColor-muted: #002766;
+      --display-blue-borderColor-emphasis: #0576ff;
+      --display-green-bgColor-muted: #122117;
+      --display-green-bgColor-emphasis: #2f6f37;
+      --display-green-fgColor: #41b445;
+      --display-green-borderColor-muted: #182f1f;
+      --display-green-borderColor-emphasis: #388f3f;
+      --display-orange-bgColor-muted: #311708;
+      --display-orange-bgColor-emphasis: #984b10;
+      --display-orange-fgColor: #ed8326;
+      --display-orange-borderColor-muted: #43200a;
+      --display-orange-borderColor-emphasis: #c46212;
+      --display-purple-bgColor-muted: #211047;
+      --display-purple-bgColor-emphasis: #7730e8;
+      --display-purple-fgColor: #b687f7;
+      --display-purple-borderColor-muted: #31146b;
+      --display-purple-borderColor-emphasis: #975bf1;
+      --display-plum-bgColor-muted: #2a0e3f;
+      --display-plum-bgColor-emphasis: #9518d8;
+      --display-plum-fgColor: #d07ef7;
+      --display-plum-borderColor-muted: #40125e;
+      --display-plum-borderColor-emphasis: #b643ef;
+      --display-red-bgColor-muted: #3c0614;
+      --display-red-bgColor-emphasis: #c31328;
+      --display-red-fgColor: #f27d83;
+      --display-red-borderColor-muted: #58091a;
+      --display-red-borderColor-emphasis: #eb3342;
+      --display-coral-bgColor-muted: #3c0614;
+      --display-coral-bgColor-emphasis: #c31328;
+      --display-coral-fgColor: #f27d83;
+      --display-coral-borderColor-muted: #58091a;
+      --display-coral-borderColor-emphasis: #eb3342;
+      --display-yellow-bgColor-muted: #2e1a00;
+      --display-yellow-bgColor-emphasis: #895906;
+      --display-yellow-fgColor: #d3910d;
+      --display-yellow-borderColor-muted: #3d2401;
+      --display-yellow-borderColor-emphasis: #aa7109;
+      --display-gray-bgColor-muted: #1c1c1c;
+      --display-gray-bgColor-emphasis: #576270;
+      --display-gray-fgColor: #92a1b5;
+      --display-gray-borderColor-muted: #2a2b2d;
+      --display-gray-borderColor-emphasis: #6e7f96;
+      --display-auburn-bgColor-muted: #271817;
+      --display-auburn-bgColor-emphasis: #87534f;
+      --display-auburn-fgColor: #bf9592;
+      --display-auburn-borderColor-muted: #3a2422;
+      --display-auburn-borderColor-emphasis: #a86f6b;
+      --display-brown-bgColor-muted: #241c14;
+      --display-brown-bgColor-emphasis: #755e3e;
+      --display-brown-fgColor: #b69a6d;
+      --display-brown-borderColor-muted: #342a1d;
+      --display-brown-borderColor-emphasis: #94774c;
+      --display-lemon-bgColor-muted: #291d00;
+      --display-lemon-bgColor-emphasis: #786008;
+      --display-lemon-fgColor: #ba9b12;
+      --display-lemon-borderColor-muted: #372901;
+      --display-lemon-borderColor-emphasis: #977b0c;
+      --display-olive-bgColor-muted: #171e0b;
+      --display-olive-bgColor-emphasis: #5e681d;
+      --display-olive-fgColor: #a2a626;
+      --display-olive-borderColor-muted: #252d10;
+      --display-olive-borderColor-emphasis: #7a8321;
+      --display-lime-bgColor-muted: #141f0f;
+      --display-lime-bgColor-emphasis: #496c28;
+      --display-lime-fgColor: #7dae37;
+      --display-lime-borderColor-muted: #1f3116;
+      --display-lime-borderColor-emphasis: #5f892f;
+      --display-pine-bgColor-muted: #082119;
+      --display-pine-bgColor-emphasis: #14714c;
+      --display-pine-fgColor: #1bb673;
+      --display-pine-borderColor-muted: #0b3224;
+      --display-pine-borderColor-emphasis: #18915e;
+      --display-teal-bgColor-muted: #041f25;
+      --display-teal-bgColor-emphasis: #106c70;
+      --display-teal-fgColor: #1cb0ab;
+      --display-teal-borderColor-muted: #073036;
+      --display-teal-borderColor-emphasis: #158a8a;
+      --display-cyan-bgColor-muted: #001f29;
+      --display-cyan-bgColor-emphasis: #036a8c;
+      --display-cyan-fgColor: #07ace4;
+      --display-cyan-borderColor-muted: #002e3d;
+      --display-cyan-borderColor-emphasis: #0587b3;
+      --display-indigo-bgColor-muted: #1b183f;
+      --display-indigo-bgColor-emphasis: #514ed4;
+      --display-indigo-fgColor: #9899ec;
+      --display-indigo-borderColor-muted: #25215f;
+      --display-indigo-borderColor-emphasis: #7070e1;
+      --display-pink-bgColor-muted: #2d1524;
+      --display-pink-bgColor-emphasis: #ac2f74;
+      --display-pink-fgColor: #e57bb2;
+      --display-pink-borderColor-muted: #451c35;
+      --display-pink-borderColor-emphasis: #d34591;
+      --avatar-bgColor: #ffffff1a;
+      --avatar-borderColor: #ffffff26;
+      --avatar-shadow: 0px 0px 0px 2px #0d1117;
+      --avatarStack-fade-bgColor-default: #3d444d;
+      --avatarStack-fade-bgColor-muted: #2a313c;
+      --control-bgColor-rest: #212830;
+      --control-bgColor-hover: #262c36;
+      --control-bgColor-active: #2a313c;
+      --control-bgColor-disabled: #212830;
+      --control-bgColor-selected: #212830;
+      --control-fgColor-rest: #f0f6fc;
+      --control-fgColor-placeholder: #9198a1;
+      --control-fgColor-disabled: #656c7699;
+      --control-borderColor-rest: #3d444d;
+      --control-borderColor-emphasis: #656c76;
+      --control-borderColor-disabled: #656c761a;
+      --control-borderColor-selected: #f0f6fc;
+      --control-borderColor-success: #238636;
+      --control-borderColor-danger: #da3633;
+      --control-borderColor-warning: #9e6a03;
+      --control-iconColor-rest: #9198a1;
+      --control-transparent-bgColor-rest: #00000000;
+      --control-transparent-bgColor-hover: #656c7633;
+      --control-transparent-bgColor-active: #656c7640;
+      --control-transparent-bgColor-disabled: #212830;
+      --control-transparent-bgColor-selected: #656c761a;
+      --control-transparent-borderColor-rest: #00000000;
+      --control-transparent-borderColor-hover: #00000000;
+      --control-transparent-borderColor-active: #00000000;
+      --control-danger-fgColor-rest: #f85149;
+      --control-danger-fgColor-hover: #ff7b72;
+      --control-danger-bgColor-hover: #f851491a;
+      --control-danger-bgColor-active: #f8514966;
+      --control-checked-bgColor-rest: #1f6feb;
+      --control-checked-bgColor-hover: #2a7aef;
+      --control-checked-bgColor-active: #3685f3;
+      --control-checked-bgColor-disabled: #656c7699;
+      --control-checked-fgColor-rest: #ffffff;
+      --control-checked-fgColor-disabled: #010409;
+      --control-checked-borderColor-rest: #1f6feb;
+      --control-checked-borderColor-hover: #2a7aef;
+      --control-checked-borderColor-active: #3685f3;
+      --control-checked-borderColor-disabled: #656c7699;
+      --controlTrack-bgColor-rest: #262c36;
+      --controlTrack-bgColor-hover: #2a313c;
+      --controlTrack-bgColor-active: #2f3742;
+      --controlTrack-bgColor-disabled: #656c7699;
+      --controlTrack-fgColor-rest: #9198a1;
+      --controlTrack-fgColor-disabled: #ffffff;
+      --controlTrack-borderColor-rest: #3d444d;
+      --controlTrack-borderColor-disabled: #656c7699;
+      --controlKnob-bgColor-rest: #010409;
+      --controlKnob-bgColor-disabled: #212830;
+      --controlKnob-bgColor-checked: #ffffff;
+      --controlKnob-borderColor-rest: #656c76;
+      --controlKnob-borderColor-disabled: #212830;
+      --controlKnob-borderColor-checked: #1f6feb;
+      --counter-borderColor: #00000000;
+      --counter-bgColor-muted: #656c7633;
+      --counter-bgColor-emphasis: #656c76;
+      --button-default-fgColor-rest: #f0f6fc;
+      --button-default-bgColor-rest: #212830;
+      --button-default-bgColor-hover: #262c36;
+      --button-default-bgColor-active: #2a313c;
+      --button-default-bgColor-selected: #2a313c;
+      --button-default-bgColor-disabled: #212830;
+      --button-default-borderColor-rest: #3d444d;
+      --button-default-borderColor-hover: #3d444d;
+      --button-default-borderColor-active: #3d444d;
+      --button-default-borderColor-disabled: #656c761a;
+      --button-default-shadow-resting: 0px 0px 0px 0px #000000;
+      --button-primary-fgColor-rest: #ffffff;
+      --button-primary-fgColor-disabled: #ffffff66;
+      --button-primary-iconColor-rest: #ffffff;
+      --button-primary-bgColor-rest: #238636;
+      --button-primary-bgColor-hover: #29903b;
+      --button-primary-bgColor-active: #2e9a40;
+      --button-primary-bgColor-disabled: #105823;
+      --button-primary-borderColor-rest: #ffffff1a;
+      --button-primary-borderColor-hover: #ffffff1a;
+      --button-primary-borderColor-active: #ffffff1a;
+      --button-primary-borderColor-disabled: #105823;
+      --button-primary-shadow-selected: 0px 0px 0px 0px #000000;
+      --button-invisible-fgColor-rest: #9198a1;
+      --button-invisible-fgColor-hover: #9198a1;
+      --button-invisible-fgColor-disabled: #656c7699;
+      --button-invisible-iconColor-rest: #9198a1;
+      --button-invisible-iconColor-hover: #9198a1;
+      --button-invisible-iconColor-disabled: #656c7699;
+      --button-invisible-bgColor-rest: #00000000;
+      --button-invisible-bgColor-hover: #656c7633;
+      --button-invisible-bgColor-active: #656c7640;
+      --button-invisible-bgColor-disabled: #212830;
+      --button-invisible-borderColor-rest: #00000000;
+      --button-invisible-borderColor-hover: #00000000;
+      --button-invisible-borderColor-disabled: #656c761a;
+      --button-outline-fgColor-rest: #388bfd;
+      --button-outline-fgColor-hover: #58a6ff;
+      --button-outline-fgColor-active: #ffffff;
+      --button-outline-fgColor-disabled: #4493f880;
+      --button-outline-bgColor-rest: #f0f6fc;
+      --button-outline-bgColor-hover: #262c36;
+      --button-outline-bgColor-active: #0d419d;
+      --button-outline-bgColor-disabled: #212830;
+      --button-outline-borderColor-hover: #3d444d;
+      --button-outline-borderColor-selected: #3d444d;
+      --button-outline-shadow-selected: 0px 0px 0px 0px #000000;
+      --button-danger-fgColor-rest: #f85149;
+      --button-danger-fgColor-hover: #ffffff;
+      --button-danger-fgColor-active: #ffffff;
+      --button-danger-fgColor-disabled: #f8514980;
+      --button-danger-iconColor-rest: #f85149;
+      --button-danger-iconColor-hover: #ffffff;
+      --button-danger-bgColor-rest: #212830;
+      --button-danger-bgColor-hover: #b62324;
+      --button-danger-bgColor-active: #d03533;
+      --button-danger-bgColor-disabled: #212830;
+      --button-danger-borderColor-rest: #3d444d;
+      --button-danger-borderColor-hover: #ffffff1a;
+      --button-danger-borderColor-active: #ffffff1a;
+      --button-danger-shadow-selected: 0px 0px 0px 0px #000000;
+      --button-inactive-fgColor: #9198a1;
+      --button-inactive-bgColor: #262c36;
+      --button-star-iconColor: #e3b341;
+      --buttonCounter-default-bgColor-rest: #2f3742;
+      --buttonCounter-invisible-bgColor-rest: #656c7633;
+      --buttonCounter-primary-bgColor-rest: #04260f33;
+      --buttonCounter-outline-bgColor-rest: #051d4d33;
+      --buttonCounter-outline-bgColor-hover: #051d4d33;
+      --buttonCounter-outline-bgColor-disabled: #1f6feb0d;
+      --buttonCounter-outline-fgColor-rest: #388bfd;
+      --buttonCounter-outline-fgColor-hover: #58a6ff;
+      --buttonCounter-outline-fgColor-disabled: #4493f880;
+      --buttonCounter-danger-bgColor-hover: #ffffff33;
+      --buttonCounter-danger-bgColor-disabled: #da36330d;
+      --buttonCounter-danger-bgColor-rest: #49020233;
+      --buttonCounter-danger-fgColor-rest: #f85149;
+      --buttonCounter-danger-fgColor-hover: #ffffff;
+      --buttonCounter-danger-fgColor-disabled: #f8514980;
+      --reactionButton-selected-bgColor-rest: #388bfd33;
+      --reactionButton-selected-bgColor-hover: #3a8cfd5c;
+      --reactionButton-selected-fgColor-rest: #4493f8;
+      --reactionButton-selected-fgColor-hover: #79c0ff;
+      --focus-outlineColor: #1f6feb;
+      --menu-bgColor-active: #151b23;
+      --overlay-bgColor: #151b23;
+      --overlay-borderColor: #3d444db3;
+      --overlay-backdrop-bgColor: #21283066;
+      --selectMenu-borderColor: #3d444d;
+      --selectMenu-bgColor-active: #0c2d6b;
+      --sideNav-bgColor-selected: #212830;
+      --skeletonLoader-bgColor: #151b23;
+      --timelineBadge-bgColor: #212830;
+      --treeViewItem-leadingVisual-iconColor-rest: #9198a1;
+      --underlineNav-borderColor-active: #f78166;
+      --underlineNav-borderColor-hover: #3d444db3;
+      --underlineNav-iconColor-rest: #9198a1;
+      --selection-bgColor: #1f6febb3;
+      --card-bgColor: #151b23;
+      --label-green-bgColor-rest: #122117;
+      --label-green-bgColor-hover: #182f1f;
+      --label-green-bgColor-active: #214529;
+      --label-green-fgColor-rest: #41b445;
+      --label-green-fgColor-hover: #46c144;
+      --label-green-fgColor-active: #75d36f;
+      --label-orange-bgColor-rest: #311708;
+      --label-orange-bgColor-hover: #43200a;
+      --label-orange-bgColor-active: #632f0d;
+      --label-orange-fgColor-rest: #ed8326;
+      --label-orange-fgColor-hover: #f1933b;
+      --label-orange-fgColor-active: #f6b06a;
+      --label-purple-bgColor-rest: #211047;
+      --label-purple-bgColor-hover: #31146b;
+      --label-purple-bgColor-active: #481a9e;
+      --label-purple-fgColor-rest: #b687f7;
+      --label-purple-fgColor-hover: #c398fb;
+      --label-purple-fgColor-active: #d2affd;
+      --label-red-bgColor-rest: #3c0614;
+      --label-red-bgColor-hover: #58091a;
+      --label-red-bgColor-active: #790c20;
+      --label-red-fgColor-rest: #f27d83;
+      --label-red-fgColor-hover: #f48b8d;
+      --label-red-fgColor-active: #f7adab;
+      --label-yellow-bgColor-rest: #2e1a00;
+      --label-yellow-bgColor-hover: #3d2401;
+      --label-yellow-bgColor-active: #5a3702;
+      --label-yellow-fgColor-rest: #d3910d;
+      --label-yellow-fgColor-hover: #df9e11;
+      --label-yellow-fgColor-active: #edb431;
+      --label-gray-bgColor-rest: #1c1c1c;
+      --label-gray-bgColor-hover: #2a2b2d;
+      --label-gray-bgColor-active: #393d41;
+      --label-gray-fgColor-rest: #92a1b5;
+      --label-gray-fgColor-hover: #9babbf;
+      --label-gray-fgColor-active: #b3c0d1;
+      --label-auburn-bgColor-rest: #271817;
+      --label-auburn-bgColor-hover: #3a2422;
+      --label-auburn-bgColor-active: #543331;
+      --label-auburn-fgColor-rest: #bf9592;
+      --label-auburn-fgColor-hover: #c6a19f;
+      --label-auburn-fgColor-active: #d4b7b5;
+      --label-brown-bgColor-rest: #241c14;
+      --label-brown-bgColor-hover: #342a1d;
+      --label-brown-bgColor-active: #483a28;
+      --label-brown-fgColor-rest: #b69a6d;
+      --label-brown-fgColor-hover: #bfa77d;
+      --label-brown-fgColor-active: #cdbb98;
+      --label-lemon-bgColor-rest: #291d00;
+      --label-lemon-bgColor-hover: #372901;
+      --label-lemon-bgColor-active: #4f3c02;
+      --label-lemon-fgColor-rest: #ba9b12;
+      --label-lemon-fgColor-hover: #c4a717;
+      --label-lemon-fgColor-active: #d7bc1d;
+      --label-olive-bgColor-rest: #171e0b;
+      --label-olive-bgColor-hover: #252d10;
+      --label-olive-bgColor-active: #374115;
+      --label-olive-fgColor-rest: #a2a626;
+      --label-olive-fgColor-hover: #b2af24;
+      --label-olive-fgColor-active: #cbc025;
+      --label-lime-bgColor-rest: #141f0f;
+      --label-lime-bgColor-hover: #1f3116;
+      --label-lime-bgColor-active: #2c441d;
+      --label-lime-fgColor-rest: #7dae37;
+      --label-lime-fgColor-hover: #89ba36;
+      --label-lime-fgColor-active: #9fcc3e;
+      --label-pine-bgColor-rest: #082119;
+      --label-pine-bgColor-hover: #0b3224;
+      --label-pine-bgColor-active: #0e4430;
+      --label-pine-fgColor-rest: #1bb673;
+      --label-pine-fgColor-hover: #1ac176;
+      --label-pine-fgColor-active: #1bda81;
+      --label-teal-bgColor-rest: #041f25;
+      --label-teal-bgColor-hover: #073036;
+      --label-teal-bgColor-active: #0a464d;
+      --label-teal-fgColor-rest: #1cb0ab;
+      --label-teal-fgColor-hover: #1fbdb2;
+      --label-teal-fgColor-active: #24d6c4;
+      --label-cyan-bgColor-rest: #001f29;
+      --label-cyan-bgColor-hover: #002e3d;
+      --label-cyan-bgColor-active: #014156;
+      --label-cyan-fgColor-rest: #07ace4;
+      --label-cyan-fgColor-hover: #09b7f1;
+      --label-cyan-fgColor-active: #45cbf7;
+      --label-indigo-bgColor-rest: #1b183f;
+      --label-indigo-bgColor-hover: #25215f;
+      --label-indigo-bgColor-active: #312c90;
+      --label-indigo-fgColor-rest: #9899ec;
+      --label-indigo-fgColor-hover: #a2a5f1;
+      --label-indigo-fgColor-active: #b7baf6;
+      --label-blue-bgColor-rest: #001a47;
+      --label-blue-bgColor-hover: #002766;
+      --label-blue-bgColor-active: #00378a;
+      --label-blue-fgColor-rest: #4da0ff;
+      --label-blue-fgColor-hover: #61adff;
+      --label-blue-fgColor-active: #85c2ff;
+      --label-plum-bgColor-rest: #2a0e3f;
+      --label-plum-bgColor-hover: #40125e;
+      --label-plum-bgColor-active: #5c1688;
+      --label-plum-fgColor-rest: #d07ef7;
+      --label-plum-fgColor-hover: #d889fa;
+      --label-plum-fgColor-active: #e4a5fd;
+      --label-pink-bgColor-rest: #2d1524;
+      --label-pink-bgColor-hover: #451c35;
+      --label-pink-bgColor-active: #65244a;
+      --label-pink-fgColor-rest: #e57bb2;
+      --label-pink-fgColor-hover: #ec8dbd;
+      --label-pink-fgColor-active: #f4a9cd;
+      --label-coral-bgColor-rest: #351008;
+      --label-coral-bgColor-hover: #51180b;
+      --label-coral-bgColor-active: #72220d;
+      --label-coral-fgColor-rest: #f7794b;
+      --label-coral-fgColor-hover: #fa8c61;
+      --label-coral-fgColor-active: #fdaa86;
+      --tooltip-bgColor: #3d444d;
+      --tooltip-fgColor: #ffffff;
+      --fgColor-default: #f0f6fc;
+      --fgColor-muted: #9198a1;
+      --fgColor-onEmphasis: #ffffff;
+      --fgColor-onInverse: #010409;
+      --fgColor-white: #ffffff;
+      --fgColor-black: #010409;
+      --fgColor-disabled: #656c7699;
+      --fgColor-link: #4493f8;
+      --fgColor-neutral: #9198a1;
+      --fgColor-accent: #4493f8;
+      --fgColor-success: #3fb950;
+      --fgColor-open: #3fb950;
+      --fgColor-attention: #d29922;
+      --fgColor-severe: #db6d28;
+      --fgColor-danger: #f85149;
+      --fgColor-closed: #f85149;
+      --fgColor-done: #ab7df8;
+      --fgColor-upsell: #ab7df8;
+      --fgColor-sponsors: #db61a2;
+      --bgColor-default: #0d1117;
+      --bgColor-muted: #151b23;
+      --bgColor-inset: #010409;
+      --bgColor-emphasis: #3d444d;
+      --bgColor-inverse: #ffffff;
+      --bgColor-white: #ffffff;
+      --bgColor-black: #010409;
+      --bgColor-disabled: #212830;
+      --bgColor-transparent: #00000000;
+      --bgColor-neutral-muted: #656c7633;
+      --bgColor-neutral-emphasis: #656c76;
+      --bgColor-accent-muted: #388bfd1a;
+      --bgColor-accent-emphasis: #1f6feb;
+      --bgColor-success-muted: #2ea04326;
+      --bgColor-success-emphasis: #238636;
+      --bgColor-open-muted: #2ea04326;
+      --bgColor-open-emphasis: #238636;
+      --bgColor-attention-muted: #bb800926;
+      --bgColor-attention-emphasis: #9e6a03;
+      --bgColor-severe-muted: #db6d281a;
+      --bgColor-severe-emphasis: #bd561d;
+      --bgColor-danger-muted: #f851491a;
+      --bgColor-danger-emphasis: #da3633;
+      --bgColor-closed-muted: #f851491a;
+      --bgColor-closed-emphasis: #da3633;
+      --bgColor-done-muted: #ab7df826;
+      --bgColor-done-emphasis: #8957e5;
+      --bgColor-upsell-muted: #ab7df826;
+      --bgColor-upsell-emphasis: #8957e5;
+      --bgColor-sponsors-muted: #db61a21a;
+      --bgColor-sponsors-emphasis: #bf4b8a;
+      --borderColor-default: #3d444d;
+      --borderColor-muted: #3d444db3;
+      --borderColor-emphasis: #656c76;
+      --borderColor-disabled: #656c761a;
+      --borderColor-transparent: #00000000;
+      --borderColor-translucent: #ffffff26;
+      --borderColor-neutral-muted: #3d444db3;
+      --borderColor-neutral-emphasis: #656c76;
+      --borderColor-accent-muted: #388bfd66;
+      --borderColor-accent-emphasis: #1f6feb;
+      --borderColor-success-muted: #2ea04366;
+      --borderColor-success-emphasis: #238636;
+      --borderColor-open-muted: #2ea04366;
+      --borderColor-open-emphasis: #238636;
+      --borderColor-attention-muted: #bb800966;
+      --borderColor-attention-emphasis: #9e6a03;
+      --borderColor-severe-muted: #db6d2866;
+      --borderColor-severe-emphasis: #bd561d;
+      --borderColor-danger-muted: #f8514966;
+      --borderColor-danger-emphasis: #da3633;
+      --borderColor-closed-muted: #f8514966;
+      --borderColor-closed-emphasis: #da3633;
+      --borderColor-done-muted: #ab7df866;
+      --borderColor-done-emphasis: #8957e5;
+      --borderColor-upsell-muted: #ab7df866;
+      --borderColor-upsell-emphasis: #8957e5;
+      --borderColor-sponsors-muted: #db61a266;
+      --borderColor-sponsors-emphasis: #bf4b8a;
+      --color-ansi-black: #2f3742;
+      --color-ansi-black-bright: #656c76;
+      --color-ansi-white: #f0f6fc;
+      --color-ansi-white-bright: #ffffff;
+      --color-ansi-gray: #656c76;
+      --color-ansi-red: #ff7b72;
+      --color-ansi-red-bright: #ffa198;
+      --color-ansi-green: #3fb950;
+      --color-ansi-green-bright: #56d364;
+      --color-ansi-yellow: #d29922;
+      --color-ansi-yellow-bright: #e3b341;
+      --color-ansi-blue: #58a6ff;
+      --color-ansi-blue-bright: #79c0ff;
+      --color-ansi-magenta: #be8fff;
+      --color-ansi-magenta-bright: #d2a8ff;
+      --color-ansi-cyan: #39c5cf;
+      --color-ansi-cyan-bright: #56d4dd;
+      --color-prettylights-syntax-comment: #9198a1;
+      --color-prettylights-syntax-constant: #79c0ff;
+      --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
+      --color-prettylights-syntax-entity: #d2a8ff;
+      --color-prettylights-syntax-storage-modifier-import: #f0f6fc;
+      --color-prettylights-syntax-entity-tag: #7ee787;
+      --color-prettylights-syntax-keyword: #ff7b72;
+      --color-prettylights-syntax-string: #a5d6ff;
+      --color-prettylights-syntax-variable: #ffa657;
+      --color-prettylights-syntax-brackethighlighter-unmatched: #f85149;
+      --color-prettylights-syntax-brackethighlighter-angle: #9198a1;
+      --color-prettylights-syntax-invalid-illegal-text: #f0f6fc;
+      --color-prettylights-syntax-invalid-illegal-bg: #8e1519;
+      --color-prettylights-syntax-carriage-return-text: #f0f6fc;
+      --color-prettylights-syntax-carriage-return-bg: #b62324;
+      --color-prettylights-syntax-string-regexp: #7ee787;
+      --color-prettylights-syntax-markup-list: #f2cc60;
+      --color-prettylights-syntax-markup-heading: #1f6feb;
+      --color-prettylights-syntax-markup-italic: #f0f6fc;
+      --color-prettylights-syntax-markup-bold: #f0f6fc;
+      --color-prettylights-syntax-markup-deleted-text: #ffdcd7;
+      --color-prettylights-syntax-markup-deleted-bg: #67060c;
+      --color-prettylights-syntax-markup-inserted-text: #aff5b4;
+      --color-prettylights-syntax-markup-inserted-bg: #033a16;
+      --color-prettylights-syntax-markup-changed-text: #ffdfb6;
+      --color-prettylights-syntax-markup-changed-bg: #5a1e02;
+      --color-prettylights-syntax-markup-ignored-text: #f0f6fc;
+      --color-prettylights-syntax-markup-ignored-bg: #1158c7;
+      --color-prettylights-syntax-meta-diff-range: #d2a8ff;
+      --color-prettylights-syntax-sublimelinter-gutter-mark: #3d444d;
+      --shadow-inset: inset 0px 1px 0px 0px #0104093d;
+      --shadow-resting-xsmall: 0px 1px 0px 0px #010409cc;
+      --shadow-resting-small: 0px 1px 0px 0px #01040966;
+      --shadow-resting-medium: 0px 3px 6px 0px #010409cc;
+      --shadow-floating-small: 0px 0px 0px 1px #3d444d, 0px 6px 12px -3px #01040966, 0px 6px 18px 0px #01040966;
+      --shadow-floating-medium: 0px 0px 0px 1px #3d444d, 0px 8px 16px -4px #01040966, 0px 4px 32px -4px #01040966, 0px 24px 48px -12px #01040966, 0px 48px 96px -24px #01040966;
+      --shadow-floating-large: 0px 0px 0px 1px #3d444d, 0px 24px 48px 0px #010409;
+      --shadow-floating-xlarge: 0px 0px 0px 1px #3d444d, 0px 32px 64px 0px #010409;
+      --shadow-floating-legacy: 0px 6px 12px -3px #01040966, 0px 6px 18px 0px #01040966;
+      --outline-focus: #1f6feb solid 2px;
+      color-scheme: dark;
+      --color-workflow-card-bg: var(--bgColor-muted, var(--color-scale-gray-7));
+      --color-workflow-card-header-shadow: rgba(27, 31, 35, 0.04);
+      --color-bg-discussions-row-emoji-box: #57606a;
+      --color-notifications-row-read-bg: var(--bgColor-default, var(--color-canvas-default));
+      --color-notifications-row-bg: var(--bgColor-muted, var(--color-canvas-subtle));
+      --color-calendar-halloween-graph-day-L1-bg: #631c03;
+      --color-calendar-halloween-graph-day-L2-bg: #bd561d;
+      --color-calendar-halloween-graph-day-L3-bg: #fa7a18;
+      --color-calendar-halloween-graph-day-L4-bg: #fddf68;
+      --color-calendar-winter-graph-day-L1-bg: #0A3069;
+      --color-calendar-winter-graph-day-L2-bg: #0969DA;
+      --color-calendar-winter-graph-day-L3-bg: #54AEFF;
+      --color-calendar-winter-graph-day-L4-bg: #B6E3FF;
+      --color-calendar-graph-day-bg: #161b22;
+      --color-calendar-graph-day-border: rgba(27, 31, 35, 0.06);
+      --color-calendar-graph-day-L1-bg: #0e4429;
+      --color-calendar-graph-day-L2-bg: #006d32;
+      --color-calendar-graph-day-L3-bg: #26a641;
+      --color-calendar-graph-day-L4-bg: #39d353;
+      --color-calendar-graph-day-L1-border: rgba(255, 255, 255, 0.05);
+      --color-calendar-graph-day-L2-border: rgba(255, 255, 255, 0.05);
+      --color-calendar-graph-day-L3-border: rgba(255, 255, 255, 0.05);
+      --color-calendar-graph-day-L4-border: rgba(255, 255, 255, 0.05);
+      --color-user-mention-fg: var(--fgColor-attention, var(--color-scale-yellow-0));
+      --color-marketing-icon-primary: #79c0ff;
+      --color-marketing-icon-secondary: #1f6feb;
+      --color-project-header-bg: #0d1117;
+      --color-project-sidebar-bg: #161b22;
+      --color-project-gradient-in: #161b22;
+      --color-project-gradient-out: rgba(22, 27, 34, 0);
+      --color-diff-blob-selected-line-highlight-mix-blend-mode: screen;
+      --color-text-white: var(--fgColor-white, var(--color-scale-white));
+      --color-mktg-btn-shadow-outline: rgba(255, 255, 255, 0.25) 0 0 0 1px inset;
+      --color-mktg-btn-bg: #f6f8fa;
+      --color-mktg-btn-shadow-focus: rgba(255, 255, 255, 0.25) 0 0 0 4px;
+      --color-mktg-btn-shadow-hover: 0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02), 0 42px 33px rgba(255, 255, 255, 0.024), 0 22px 18px rgba(255, 255, 255, 0.028), 0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04), 0 3px 2px rgba(255, 255, 255, 0.07);
+      --color-mktg-btn-shadow-hover-muted: white 0 0 0 2px inset;
+      box-sizing: border-box;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-size: var(--body-font-size, 14px);
+      line-height: 1.5;
+      color: var(--fgColor-default, var(--color-fg-default));
+      background-color: var(--bgColor-default, var(--color-canvas-default));
+      overflow-wrap: break-word;
+      --dialog-scrollgutter: 13px;
+    }
+  }
+
+  .Subhead {
+    border-bottom: var(--borderWidth-thin) solid var(--borderColor-muted);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    margin-bottom: var(--stack-gap-normal);
+    padding-bottom: var(--stack-padding-condensed);
+  }
+
+  .Subhead-heading--large {
+    font-size: var(--base-size-24);
+  }
+
+  .Subhead-heading {
+    flex: 1 1 auto;
+    font-weight: var(--base-text-weight-normal);
+    order: 0;
+  }
+</style>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+  @media all {
+    body {
+      font-family: sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--fgColor-default, var(--color-fg-default));
+    }
+  }
+
+  @media all {
+    * {
+      box-sizing: border-box;
+    }
+
+    :is(.Layout-main .Layout-main-centered-md, .Layout-main .Layout-main-centered-lg, .Layout-main .Layout-main-centered-xl)>.container-md {
+      margin-left: 0;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-size: var(--body-font-size, 14px);
+      line-height: 1.5;
+      color: var(--fgColor-default, var(--color-fg-default));
+      background-color: var(--bgColor-default, var(--color-canvas-default));
+    }
+
+    html {
+      font-size: 16px;
+      font-family: sans-serif;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    :root {
+      --base-size-4: 0.25rem;
+      --base-size-8: 0.5rem;
+      --base-size-16: 1rem;
+      --base-size-24: 1.5rem;
+      --base-size-40: 2.5rem;
+    }
+
+    :root {
+      --base-text-weight-normal: 400;
+      --base-text-weight-medium: 500;
+      --base-text-weight-semibold: 600;
+    }
+
+    :root {
+      --borderWidth-thin: max(1px, 0.0625rem);
+      --borderRadius-medium: 0.375rem;
+    }
+
+    :root {
+      --breakpoint-medium: 48rem;
+    }
+
+    :root {
+      --control-medium-paddingBlock: 0.375rem;
+      --stack-padding-condensed: 0.5rem;
+      --stack-padding-normal: 1rem;
+    }
+
+    :root {
+      --text-codeInline-size: 0.9285em;
+      --text-codeBlock-lineHeight: 1.5385;
+      --text-codeBlock-size: 0.8125rem;
+      --text-caption-lineHeight: 1.3333;
+      --text-caption-size: 0.75rem;
+      --text-body-lineHeight-small: 1.6666;
+      --text-body-lineHeight-medium: 1.4285;
+      --text-body-lineHeight-large: 1.5;
+      --text-body-size-small: 0.75rem;
+      --text-body-size-medium: 0.875rem;
+      --text-body-size-large: 1rem;
+      --text-subtitle-lineHeight: 1.6;
+      --text-subtitle-size: 1.25rem;
+      --text-title-lineHeight-small: 1.5;
+      --text-title-lineHeight-medium: 1.6;
+      --text-title-lineHeight-large: 1.5;
+      --text-title-size-small: 1rem;
+      --text-title-size-medium: 1.25rem;
+      --text-title-size-large: 2rem;
+      --text-display-lineHeight: 1.4;
+      --text-display-size: 2.5rem;
+      --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+      --fontStack-sansSerifDisplay: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --text-codeInline-weight: var(--base-text-weight-normal);
+      --text-codeBlock-weight: var(--base-text-weight-normal);
+      --text-caption-weight: var(--base-text-weight-normal);
+      --text-body-weight: var(--base-text-weight-normal);
+      --text-subtitle-weight: var(--base-text-weight-normal);
+      --text-title-weight-small: var(--base-text-weight-semibold);
+      --text-title-weight-medium: var(--base-text-weight-semibold);
+      --text-title-weight-large: var(--base-text-weight-semibold);
+      --text-display-weight: var(--base-text-weight-medium);
+      --text-codeInline-shorthand: var(--text-codeInline-weight) var(--text-codeInline-size) var(--fontStack-monospace);
+      --text-codeBlock-shorthand: var(--text-codeBlock-weight) var(--text-codeBlock-size) / var(--text-codeBlock-lineHeight) var(--fontStack-monospace);
+      --text-caption-shorthand: var(--text-caption-weight) var(--text-caption-size) / var(--text-caption-lineHeight) var(--fontStack-sansSerif);
+      --text-body-shorthand-small: var(--text-body-weight) var(--text-body-size-small) / var(--text-body-lineHeight-small) var(--fontStack-sansSerif);
+      --text-body-shorthand-medium: var(--text-body-weight) var(--text-body-size-medium) / var(--text-body-lineHeight-medium) var(--fontStack-sansSerif);
+      --text-body-shorthand-large: var(--text-body-weight) var(--text-body-size-large) / var(--text-body-lineHeight-large) var(--fontStack-sansSerif);
+      --text-subtitle-shorthand: var(--text-subtitle-weight) var(--text-subtitle-size) / var(--text-subtitle-lineHeight) var(--fontStack-sansSerifDisplay);
+      --text-title-shorthand-small: var(--text-title-weight-small) var(--text-title-size-small) / var(--text-title-lineHeight-small) var(--fontStack-sansSerif);
+      --text-title-shorthand-medium: var(--text-title-weight-medium) var(--text-title-size-medium) / var(--text-title-lineHeight-medium) var(--fontStack-sansSerifDisplay);
+      --text-title-shorthand-large: var(--text-title-weight-large) var(--text-title-size-large) / var(--text-title-lineHeight-large) var(--fontStack-sansSerifDisplay);
+      --text-display-shorthand: var(--text-display-weight) var(--text-display-size) / var(--text-display-lineHeight) var(--fontStack-sansSerifDisplay);
+    }
+
+    :root {
+      --body-font-size: 0.875rem;
+    }
+
+    :root {
+      color-scheme: light;
+    }
+
+    :root {
+      --Layout-pane-width: 220px;
+      --Layout-template-columns: 1fr var(--Layout-pane-width);
+      --Layout-column-gap: var(--base-size-16);
+      --Layout-row-gap: var(--base-size-16);
+    }
+
+    :root {
+      --actionListContent-paddingBlock: var(--control-medium-paddingBlock);
+    }
+
+    :root {
+      --color-workflow-card-bg: var(--bgColor-default, var(--color-scale-white));
+      --color-notifications-row-read-bg: var(--bgColor-muted, var(--color-canvas-subtle));
+      --color-notifications-row-bg: var(--bgColor-white, var(--color-scale-white));
+      --color-user-mention-fg: var(--fgColor-default, var(--color-fg-default));
+      --color-project-sidebar-bg: var(--bgColor-white, var(--color-scale-white));
+      --color-project-gradient-in: var(--bgColor-white, var(--color-scale-white));
+      --color-text-white: var(--fgColor-white, var(--color-scale-white));
+    }
+
+    dd {
+      margin-left: 0;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .Box {
+      background-color: var(--bgColor-default);
+      border-color: var(--borderColor-default);
+      border-radius: var(--borderRadius-medium);
+      border-style: solid;
+      border-width: var(--borderWidth-thin);
+    }
+
+    .Box--condensed {
+      line-height: 1.25;
+    }
+
+    a {
+      background-color: transparent;
+    }
+
+    a {
+      color: var(--fgColor-accent, var(--color-accent-fg));
+      text-decoration: none;
+    }
+
+    [data-a11y-link-underlines="true"] .Link--inTextBlock {
+      text-decoration: underline;
+      text-underline-offset: .2rem;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    [data-a11y-link-underlines="true"] .Link--inTextBlock,
+    [data-a11y-link-underlines="true"] .Link--inTextBlock:hover {
+      text-decoration: underline;
+      text-underline-offset: .2rem;
+    }
+
+    ul {
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .py-1 {
+      padding-top: var(--base-size-4, 4px) !important;
+      padding-bottom: var(--base-size-4, 4px) !important;
+    }
+
+    .px-2 {
+      padding-right: var(--base-size-8, 8px) !important;
+      padding-left: var(--base-size-8, 8px) !important;
+    }
+
+    .Box-row {
+      border-top: var(--borderWidth-thin) solid var(--borderColor-muted);
+      list-style-type: none;
+      margin-top: calc(var(--borderWidth-thin)*-1);
+      padding: var(--stack-padding-normal);
+    }
+
+    .Box--condensed .Box-row {
+      padding: var(--stack-padding-condensed) var(--stack-padding-normal);
+    }
+
+    .Box-row:first-of-type {
+      border-top-left-radius: var(--borderRadius-medium);
+      border-top-right-radius: var(--borderRadius-medium);
+    }
+
+    .Box-row:first-of-type {
+      border-top-color: transparent;
+    }
+
+    .Box-row:last-of-type {
+      border-bottom-left-radius: var(--borderRadius-medium);
+      border-bottom-right-radius: var(--borderRadius-medium);
+    }
+
+    .form-checkbox {
+      padding-left: 20px;
+      margin: 15px 0;
+      vertical-align: middle;
+    }
+
+    .my-2 {
+      margin-top: var(--base-size-8, 8px) !important;
+      margin-bottom: var(--base-size-8, 8px) !important;
+    }
+
+    .list-style-none {
+      list-style: none !important;
+    }
+
+    label {
+      font-weight: var(--base-text-weight-semibold, 600);
+    }
+
+    label {
+      position: static;
+    }
+
+    .clearfix:before {
+      display: table;
+      content: "";
+    }
+
+    .clearfix:after {
+      display: table;
+      clear: both;
+      content: "";
+    }
+
+    .col-4 {
+      width: 33.33333332%;
+    }
+
+    .float-left {
+      float: left !important;
+    }
+
+    .col-8 {
+      width: 66.66666664%;
+    }
+
+    input {
+      font: inherit;
+      margin: 0;
+    }
+
+    input {
+      overflow: visible;
+    }
+
+    input {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    [type="checkbox"] {
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    .form-checkbox input[type="checkbox"] {
+      float: left;
+      margin: 5px 0 0 -20px;
+      vertical-align: middle;
+    }
+
+    .form-checkbox input[type="checkbox"] {
+      margin-top: var(--base-size-4);
+    }
+
+    .color-fg-default {
+      color: var(--fgColor-default, var(--color-fg-default)) !important;
+    }
+
+    .text-bold {
+      font-weight: var(--base-text-weight-semibold, 600) !important;
+    }
+
+    .color-fg-muted {
+      color: var(--fgColor-muted, var(--color-fg-muted)) !important;
+    }
+
+    .text-normal {
+      font-weight: var(--base-text-weight-normal, 400) !important;
+    }
+
+    .pl-3 {
+      padding-left: var(--base-size-16, 16px) !important;
+    }
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+  @media all {
+    body {
+      font-family: sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--fgColor-default, var(--color-fg-default));
+    }
+  }
+
+  @media all {
+    * {
+      box-sizing: border-box;
+    }
+
+    :is(.Layout-main .Layout-main-centered-md, .Layout-main .Layout-main-centered-lg, .Layout-main .Layout-main-centered-xl)>.container-md {
+      margin-left: 0;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-size: var(--body-font-size, 14px);
+      line-height: 1.5;
+      color: var(--fgColor-default, var(--color-fg-default));
+      background-color: var(--bgColor-default, var(--color-canvas-default));
+    }
+
+    html {
+      font-size: 16px;
+      font-family: sans-serif;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    :root {
+      --base-size-16: 1rem;
+      --base-size-24: 1.5rem;
+      --base-size-40: 2.5rem;
+    }
+
+    :root {
+      --base-text-weight-normal: 400;
+      --base-text-weight-medium: 500;
+      --base-text-weight-semibold: 600;
+    }
+
+    :root {
+      --breakpoint-medium: 48rem;
+    }
+
+    :root {
+      --control-medium-paddingBlock: 0.375rem;
+    }
+
+    :root {
+      --text-codeInline-size: 0.9285em;
+      --text-codeBlock-lineHeight: 1.5385;
+      --text-codeBlock-size: 0.8125rem;
+      --text-caption-lineHeight: 1.3333;
+      --text-caption-size: 0.75rem;
+      --text-body-lineHeight-small: 1.6666;
+      --text-body-lineHeight-medium: 1.4285;
+      --text-body-lineHeight-large: 1.5;
+      --text-body-size-small: 0.75rem;
+      --text-body-size-medium: 0.875rem;
+      --text-body-size-large: 1rem;
+      --text-subtitle-lineHeight: 1.6;
+      --text-subtitle-size: 1.25rem;
+      --text-title-lineHeight-small: 1.5;
+      --text-title-lineHeight-medium: 1.6;
+      --text-title-lineHeight-large: 1.5;
+      --text-title-size-small: 1rem;
+      --text-title-size-medium: 1.25rem;
+      --text-title-size-large: 2rem;
+      --text-display-lineHeight: 1.4;
+      --text-display-size: 2.5rem;
+      --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+      --fontStack-sansSerifDisplay: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --text-codeInline-weight: var(--base-text-weight-normal);
+      --text-codeBlock-weight: var(--base-text-weight-normal);
+      --text-caption-weight: var(--base-text-weight-normal);
+      --text-body-weight: var(--base-text-weight-normal);
+      --text-subtitle-weight: var(--base-text-weight-normal);
+      --text-title-weight-small: var(--base-text-weight-semibold);
+      --text-title-weight-medium: var(--base-text-weight-semibold);
+      --text-title-weight-large: var(--base-text-weight-semibold);
+      --text-display-weight: var(--base-text-weight-medium);
+      --text-codeInline-shorthand: var(--text-codeInline-weight) var(--text-codeInline-size) var(--fontStack-monospace);
+      --text-codeBlock-shorthand: var(--text-codeBlock-weight) var(--text-codeBlock-size) / var(--text-codeBlock-lineHeight) var(--fontStack-monospace);
+      --text-caption-shorthand: var(--text-caption-weight) var(--text-caption-size) / var(--text-caption-lineHeight) var(--fontStack-sansSerif);
+      --text-body-shorthand-small: var(--text-body-weight) var(--text-body-size-small) / var(--text-body-lineHeight-small) var(--fontStack-sansSerif);
+      --text-body-shorthand-medium: var(--text-body-weight) var(--text-body-size-medium) / var(--text-body-lineHeight-medium) var(--fontStack-sansSerif);
+      --text-body-shorthand-large: var(--text-body-weight) var(--text-body-size-large) / var(--text-body-lineHeight-large) var(--fontStack-sansSerif);
+      --text-subtitle-shorthand: var(--text-subtitle-weight) var(--text-subtitle-size) / var(--text-subtitle-lineHeight) var(--fontStack-sansSerifDisplay);
+      --text-title-shorthand-small: var(--text-title-weight-small) var(--text-title-size-small) / var(--text-title-lineHeight-small) var(--fontStack-sansSerif);
+      --text-title-shorthand-medium: var(--text-title-weight-medium) var(--text-title-size-medium) / var(--text-title-lineHeight-medium) var(--fontStack-sansSerifDisplay);
+      --text-title-shorthand-large: var(--text-title-weight-large) var(--text-title-size-large) / var(--text-title-lineHeight-large) var(--fontStack-sansSerifDisplay);
+      --text-display-shorthand: var(--text-display-weight) var(--text-display-size) / var(--text-display-lineHeight) var(--fontStack-sansSerifDisplay);
+    }
+
+    :root {
+      --body-font-size: 0.875rem;
+    }
+
+    :root {
+      color-scheme: light;
+    }
+
+    :root {
+      --Layout-pane-width: 220px;
+      --Layout-template-columns: 1fr var(--Layout-pane-width);
+      --Layout-column-gap: var(--base-size-16);
+      --Layout-row-gap: var(--base-size-16);
+    }
+
+    :root {
+      --actionListContent-paddingBlock: var(--control-medium-paddingBlock);
+    }
+
+    :root {
+      --color-workflow-card-bg: var(--bgColor-default, var(--color-scale-white));
+      --color-notifications-row-read-bg: var(--bgColor-muted, var(--color-canvas-subtle));
+      --color-notifications-row-bg: var(--bgColor-white, var(--color-scale-white));
+      --color-user-mention-fg: var(--fgColor-default, var(--color-fg-default));
+      --color-project-sidebar-bg: var(--bgColor-white, var(--color-scale-white));
+      --color-project-gradient-in: var(--bgColor-white, var(--color-scale-white));
+      --color-text-white: var(--fgColor-white, var(--color-scale-white));
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    a {
+      background-color: transparent;
+    }
+
+    a {
+      color: var(--fgColor-accent, var(--color-accent-fg));
+      text-decoration: none;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-block;
+      padding: 5px var(--base-size-16);
+      font-size: 14px;
+      font-weight: var(--base-text-weight-medium, 500);
+      line-height: 20px;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+      border: 1px solid;
+      border-radius: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .btn {
+      color: var(--button-default-fgColor-rest, var(--color-btn-text));
+      background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));
+      border-color: var(--button-default-borderColor-rest, var(--color-btn-border));
+      box-shadow: var(--button-default-shadow-resting, var(--color-btn-shadow)), var(--button-default-shadow-inset, var(--color-btn-inset-shadow));
+      transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+      transition-property: color, background-color, box-shadow, border-color;
+    }
+
+    .btn-invisible {
+      color: var(--fgColor-accent, var(--color-accent-fg));
+      background-color: transparent;
+      border: 0;
+      border-radius: 6px;
+      box-shadow: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: var(--button-default-bgColor-hover, var(--color-btn-hover-bg));
+      border-color: var(--button-default-borderColor-hover, var(--color-btn-hover-border));
+      transition-duration: .1s;
+    }
+
+    .btn-invisible:hover {
+      color: var(--fgColor-accent, var(--color-accent-fg));
+      background-color: var(--button-default-bgColor-hover, var(--color-btn-hover-bg));
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+  @media all {
+    body {
+      font-family: sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--fgColor-default, var(--color-fg-default));
+    }
+  }
+
+  @media all {
+    * {
+      box-sizing: border-box;
+    }
+
+    :is(.Layout-main .Layout-main-centered-md, .Layout-main .Layout-main-centered-lg, .Layout-main .Layout-main-centered-xl)>.container-md {
+      margin-left: 0;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-size: var(--body-font-size, 14px);
+      line-height: 1.5;
+      color: var(--fgColor-default, var(--color-fg-default));
+      background-color: var(--bgColor-default, var(--color-canvas-default));
+    }
+
+    html {
+      font-size: 16px;
+      font-family: sans-serif;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    :root {
+      --base-size-16: 1rem;
+      --base-size-24: 1.5rem;
+      --base-size-40: 2.5rem;
+    }
+
+    :root {
+      --base-text-weight-normal: 400;
+      --base-text-weight-medium: 500;
+      --base-text-weight-semibold: 600;
+    }
+
+    :root {
+      --breakpoint-medium: 48rem;
+    }
+
+    :root {
+      --control-medium-paddingBlock: 0.375rem;
+    }
+
+    :root {
+      --text-codeInline-size: 0.9285em;
+      --text-codeBlock-lineHeight: 1.5385;
+      --text-codeBlock-size: 0.8125rem;
+      --text-caption-lineHeight: 1.3333;
+      --text-caption-size: 0.75rem;
+      --text-body-lineHeight-small: 1.6666;
+      --text-body-lineHeight-medium: 1.4285;
+      --text-body-lineHeight-large: 1.5;
+      --text-body-size-small: 0.75rem;
+      --text-body-size-medium: 0.875rem;
+      --text-body-size-large: 1rem;
+      --text-subtitle-lineHeight: 1.6;
+      --text-subtitle-size: 1.25rem;
+      --text-title-lineHeight-small: 1.5;
+      --text-title-lineHeight-medium: 1.6;
+      --text-title-lineHeight-large: 1.5;
+      --text-title-size-small: 1rem;
+      --text-title-size-medium: 1.25rem;
+      --text-title-size-large: 2rem;
+      --text-display-lineHeight: 1.4;
+      --text-display-size: 2.5rem;
+      --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+      --fontStack-sansSerifDisplay: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --text-codeInline-weight: var(--base-text-weight-normal);
+      --text-codeBlock-weight: var(--base-text-weight-normal);
+      --text-caption-weight: var(--base-text-weight-normal);
+      --text-body-weight: var(--base-text-weight-normal);
+      --text-subtitle-weight: var(--base-text-weight-normal);
+      --text-title-weight-small: var(--base-text-weight-semibold);
+      --text-title-weight-medium: var(--base-text-weight-semibold);
+      --text-title-weight-large: var(--base-text-weight-semibold);
+      --text-display-weight: var(--base-text-weight-medium);
+      --text-codeInline-shorthand: var(--text-codeInline-weight) var(--text-codeInline-size) var(--fontStack-monospace);
+      --text-codeBlock-shorthand: var(--text-codeBlock-weight) var(--text-codeBlock-size) / var(--text-codeBlock-lineHeight) var(--fontStack-monospace);
+      --text-caption-shorthand: var(--text-caption-weight) var(--text-caption-size) / var(--text-caption-lineHeight) var(--fontStack-sansSerif);
+      --text-body-shorthand-small: var(--text-body-weight) var(--text-body-size-small) / var(--text-body-lineHeight-small) var(--fontStack-sansSerif);
+      --text-body-shorthand-medium: var(--text-body-weight) var(--text-body-size-medium) / var(--text-body-lineHeight-medium) var(--fontStack-sansSerif);
+      --text-body-shorthand-large: var(--text-body-weight) var(--text-body-size-large) / var(--text-body-lineHeight-large) var(--fontStack-sansSerif);
+      --text-subtitle-shorthand: var(--text-subtitle-weight) var(--text-subtitle-size) / var(--text-subtitle-lineHeight) var(--fontStack-sansSerifDisplay);
+      --text-title-shorthand-small: var(--text-title-weight-small) var(--text-title-size-small) / var(--text-title-lineHeight-small) var(--fontStack-sansSerif);
+      --text-title-shorthand-medium: var(--text-title-weight-medium) var(--text-title-size-medium) / var(--text-title-lineHeight-medium) var(--fontStack-sansSerifDisplay);
+      --text-title-shorthand-large: var(--text-title-weight-large) var(--text-title-size-large) / var(--text-title-lineHeight-large) var(--fontStack-sansSerifDisplay);
+      --text-display-shorthand: var(--text-display-weight) var(--text-display-size) / var(--text-display-lineHeight) var(--fontStack-sansSerifDisplay);
+    }
+
+    :root {
+      --body-font-size: 0.875rem;
+    }
+
+    :root {
+      color-scheme: light;
+    }
+
+    :root {
+      --Layout-pane-width: 220px;
+      --Layout-template-columns: 1fr var(--Layout-pane-width);
+      --Layout-column-gap: var(--base-size-16);
+      --Layout-row-gap: var(--base-size-16);
+    }
+
+    :root {
+      --actionListContent-paddingBlock: var(--control-medium-paddingBlock);
+    }
+
+    :root {
+      --color-workflow-card-bg: var(--bgColor-default, var(--color-scale-white));
+      --color-notifications-row-read-bg: var(--bgColor-muted, var(--color-canvas-subtle));
+      --color-notifications-row-bg: var(--bgColor-white, var(--color-scale-white));
+      --color-user-mention-fg: var(--fgColor-default, var(--color-fg-default));
+      --color-project-sidebar-bg: var(--bgColor-white, var(--color-scale-white));
+      --color-project-gradient-in: var(--bgColor-white, var(--color-scale-white));
+      --color-text-white: var(--fgColor-white, var(--color-scale-white));
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    button {
+      font: inherit;
+      margin: 0;
+    }
+
+    button {
+      overflow: visible;
+    }
+
+    button {
+      text-transform: none;
+    }
+
+    button {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border-radius: 0;
+    }
+
+    button,
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-block;
+      padding: 5px var(--base-size-16);
+      font-size: 14px;
+      font-weight: var(--base-text-weight-medium, 500);
+      line-height: 20px;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+      border: 1px solid;
+      border-radius: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .btn {
+      color: var(--button-default-fgColor-rest, var(--color-btn-text));
+      background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));
+      border-color: var(--button-default-borderColor-rest, var(--color-btn-border));
+      box-shadow: var(--button-default-shadow-resting, var(--color-btn-shadow)), var(--button-default-shadow-inset, var(--color-btn-inset-shadow));
+      transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+      transition-property: color, background-color, box-shadow, border-color;
+    }
+
+    .btn-primary {
+      color: var(--button-primary-fgColor-rest, var(--color-btn-primary-text));
+      background-color: var(--button-primary-bgColor-rest, var(--color-btn-primary-bg));
+      border-color: var(--button-primary-borderColor-rest, var(--color-btn-primary-border));
+      box-shadow: var(--shadow-resting-small, var(--color-btn-primary-shadow)), var(--shadow-highlight, var(--color-btn-primary-inset-shadow));
+    }
+
+    .btn:hover {
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: var(--button-default-bgColor-hover, var(--color-btn-hover-bg));
+      border-color: var(--button-default-borderColor-hover, var(--color-btn-hover-border));
+      transition-duration: .1s;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--button-primary-bgColor-hover, var(--color-btn-primary-hover-bg));
+      border-color: var(--button-primary-borderColor-hover, var(--color-btn-primary-hover-border));
+    }
+
+    a {
+      background-color: transparent;
+    }
+
+    a {
+      color: var(--fgColor-accent, var(--color-accent-fg));
+      text-decoration: none;
+    }
+
+    .btn-invisible {
+      color: var(--fgColor-accent, var(--color-accent-fg));
+      background-color: transparent;
+      border: 0;
+      border-radius: 6px;
+      box-shadow: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-invisible:hover {
+      color: var(--fgColor-accent, var(--color-accent-fg));
+      background-color: var(--button-default-bgColor-hover, var(--color-btn-hover-bg));
+      outline: none;
+      box-shadow: none;
+    }
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div style="max-width: 768px;">
+
+      <div data-view-component="true" class="Subhead">
+        <h2 data-view-component="true" class="Subhead-heading Subhead-heading--large">
+          Personal Access Token Link Generator
+        </h2>
+
+
+      </div>
+      <p id="settings_user_tokens_note">
+        This form allows you to generate a URL to share that will have preselected scopes for a personal access token.
+      </p>
+      <form
+        class="new_oauth_access snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center"
+        id="new_oauth_access" aria-label="Personal access token" aria-describedby="settings_user_tokens_note"
+        accept-charset="UTF-8">
+
+        <div
+          class="form snipcss0-0-0-1 snipcss0-1-1-2 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
+
+
+
+
+          <dl class="form-group snipcss0-1-1-20 snipcss0-2-2-3">
+            <dt class="snipcss0-2-20-21 skipcss"><strong class="snipcss0-3-21-22 skipcss">Select scopes</strong></dt>
+            <dd class="snipcss0-2-20-23 snipcss0-3-3-4">
+              <p class="snipcss0-3-23-24 snipcss0-4-4-5">
+                Scopes define the access for personal tokens. <a
+                  class="Link--inTextBlock snipcss0-4-24-25 snipcss0-5-5-6" rel="noopener noreferrer"
+                  href="https://docs.github.com/apps/building-oauth-apps/scopes-for-oauth-apps/" target="_blank">Read
+                  more about OAuth scopes.</a>
+              </p>
+              <div class="Box Box--condensed snipcss0-3-23-26 snipcss0-4-4-7">
+                <ul class="snipcss0-4-26-27 snipcss0-5-7-8">
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-28 snipcss0-6-8-9"
+                    data-scope-for="repo">
+                    <div class="form-checkbox my-2 snipcss0-6-28-29 snipcss0-7-9-10">
+                      <label class="clearfix snipcss0-7-29-30 snipcss0-8-10-11">
+                        <div class="col-4 float-left snipcss0-8-30-31 snipcss0-9-11-12">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="repo"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-31-32 snipcss0-10-12-13">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-31-33 snipcss0-10-12-14">repo</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-30-34 snipcss0-9-11-15">
+                          <span class="color-fg-muted text-normal snipcss0-9-34-35 snipcss0-10-15-16">
+                            Full control of private repositories
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-28-36 snipcss0-7-9-17">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-36-37 snipcss0-8-17-18"
+                        data-scope-for="repo:status">
+                        <div class="form-checkbox my-2 snipcss0-8-37-38 snipcss0-9-18-19">
+                          <label class="clearfix snipcss0-9-38-39 snipcss0-10-19-20">
+                            <div class="col-4 float-left pl-3 snipcss0-10-39-40 snipcss0-11-20-21">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="repo:status"
+                                class="js-checkbox-scope snipcss0-11-40-41 snipcss0-12-21-22">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-40-42 snipcss0-12-21-23">repo:status</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-39-43 snipcss0-11-20-24">
+                              <span class="color-fg-muted text-normal snipcss0-11-43-44 snipcss0-12-24-25">
+                                Access commit status
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-36-45 snipcss0-8-17-26"
+                        data-scope-for="repo_deployment">
+                        <div class="form-checkbox my-2 snipcss0-8-45-46 snipcss0-9-26-27">
+                          <label class="clearfix snipcss0-9-46-47 snipcss0-10-27-28">
+                            <div class="col-4 float-left pl-3 snipcss0-10-47-48 snipcss0-11-28-29">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="repo_deployment"
+                                class="js-checkbox-scope snipcss0-11-48-49 snipcss0-12-29-30">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-48-50 snipcss0-12-29-31">repo_deployment</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-47-51 snipcss0-11-28-32">
+                              <span class="color-fg-muted text-normal snipcss0-11-51-52 snipcss0-12-32-33">
+                                Access deployment status
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-36-53 snipcss0-8-17-34"
+                        data-scope-for="public_repo">
+                        <div class="form-checkbox my-2 snipcss0-8-53-54 snipcss0-9-34-35">
+                          <label class="clearfix snipcss0-9-54-55 snipcss0-10-35-36">
+                            <div class="col-4 float-left pl-3 snipcss0-10-55-56 snipcss0-11-36-37">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="public_repo"
+                                class="js-checkbox-scope snipcss0-11-56-57 snipcss0-12-37-38">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-56-58 snipcss0-12-37-39">public_repo</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-55-59 snipcss0-11-36-40">
+                              <span class="color-fg-muted text-normal snipcss0-11-59-60 snipcss0-12-40-41">
+                                Access public repositories
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-36-61 snipcss0-8-17-42"
+                        data-scope-for="repo:invite">
+                        <div class="form-checkbox my-2 snipcss0-8-61-62 snipcss0-9-42-43">
+                          <label class="clearfix snipcss0-9-62-63 snipcss0-10-43-44">
+                            <div class="col-4 float-left pl-3 snipcss0-10-63-64 snipcss0-11-44-45">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="repo:invite"
+                                class="js-checkbox-scope snipcss0-11-64-65 snipcss0-12-45-46">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-64-66 snipcss0-12-45-47">repo:invite</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-63-67 snipcss0-11-44-48">
+                              <span class="color-fg-muted text-normal snipcss0-11-67-68 snipcss0-12-48-49">
+                                Access repository invitations
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-36-69 snipcss0-8-17-50"
+                        data-scope-for="security_events">
+                        <div class="form-checkbox my-2 snipcss0-8-69-70 snipcss0-9-50-51">
+                          <label class="clearfix snipcss0-9-70-71 snipcss0-10-51-52">
+                            <div class="col-4 float-left pl-3 snipcss0-10-71-72 snipcss0-11-52-53">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="security_events"
+                                class="js-checkbox-scope snipcss0-11-72-73 snipcss0-12-53-54">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-72-74 snipcss0-12-53-55">security_events</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-71-75 snipcss0-11-52-56">
+                              <span class="color-fg-muted text-normal snipcss0-11-75-76 snipcss0-12-56-57">
+                                Read and write security events
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-77 snipcss0-6-8-58"
+                    data-scope-for="workflow">
+                    <div class="form-checkbox my-2 snipcss0-6-77-78 snipcss0-7-58-59">
+                      <label class="clearfix snipcss0-7-78-79 snipcss0-8-59-60">
+                        <div class="col-4 float-left snipcss0-8-79-80 snipcss0-9-60-61">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="workflow"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-80-81 snipcss0-10-61-62"
+                            data-check-related-scopes="repo">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-80-82 snipcss0-10-61-63">workflow</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-79-83 snipcss0-9-60-64">
+                          <span class="color-fg-muted text-normal snipcss0-9-83-84 snipcss0-10-64-65">
+                            Update GitHub Action workflows
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-85 snipcss0-6-8-66"
+                    data-scope-for="write:packages">
+                    <div class="form-checkbox my-2 snipcss0-6-85-86 snipcss0-7-66-67">
+                      <label class="clearfix snipcss0-7-86-87 snipcss0-8-67-68">
+                        <div class="col-4 float-left snipcss0-8-87-88 snipcss0-9-68-69">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="write:packages"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-88-89 snipcss0-10-69-70"
+                            data-check-related-scopes="read:packages repo">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-88-90 snipcss0-10-69-71">write:packages</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-87-91 snipcss0-9-68-72">
+                          <span class="color-fg-muted text-normal snipcss0-9-91-92 snipcss0-10-72-73">
+                            Upload packages to GitHub Package Registry
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-85-93 snipcss0-7-66-74">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-93-94 snipcss0-8-74-75"
+                        data-scope-for="read:packages">
+                        <div class="form-checkbox my-2 snipcss0-8-94-95 snipcss0-9-75-76">
+                          <label class="clearfix snipcss0-9-95-96 snipcss0-10-76-77">
+                            <div class="col-4 float-left pl-3 snipcss0-10-96-97 snipcss0-11-77-78">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="read:packages"
+                                class="js-checkbox-scope snipcss0-11-97-98 snipcss0-12-78-79">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-97-99 snipcss0-12-78-80">read:packages</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-96-100 snipcss0-11-77-81">
+                              <span class="color-fg-muted text-normal snipcss0-11-100-101 snipcss0-12-81-82">
+                                Download packages from GitHub Package Registry
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-102 snipcss0-6-8-83"
+                    data-scope-for="delete:packages">
+                    <div class="form-checkbox my-2 snipcss0-6-102-103 snipcss0-7-83-84">
+                      <label class="clearfix snipcss0-7-103-104 snipcss0-8-84-85">
+                        <div class="col-4 float-left snipcss0-8-104-105 snipcss0-9-85-86">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="delete:packages"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-105-106 snipcss0-10-86-87"
+                            data-check-related-scopes="read:packages">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-105-107 snipcss0-10-86-88">delete:packages</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-104-108 snipcss0-9-85-89">
+                          <span class="color-fg-muted text-normal snipcss0-9-108-109 snipcss0-10-89-90">
+                            Delete packages from GitHub Package Registry
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-110 snipcss0-6-8-91"
+                    data-scope-for="admin:org">
+                    <div class="form-checkbox my-2 snipcss0-6-110-111 snipcss0-7-91-92">
+                      <label class="clearfix snipcss0-7-111-112 snipcss0-8-92-93">
+                        <div class="col-4 float-left snipcss0-8-112-113 snipcss0-9-93-94">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="admin:org"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-113-114 snipcss0-10-94-95">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-113-115 snipcss0-10-94-96">admin:org</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-112-116 snipcss0-9-93-97">
+                          <span class="color-fg-muted text-normal snipcss0-9-116-117 snipcss0-10-97-98">
+                            Full control of orgs and teams, read and write org projects
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-110-118 snipcss0-7-91-99">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-118-119 snipcss0-8-99-100"
+                        data-scope-for="write:org">
+                        <div class="form-checkbox my-2 snipcss0-8-119-120 snipcss0-9-100-101">
+                          <label class="clearfix snipcss0-9-120-121 snipcss0-10-101-102">
+                            <div class="col-4 float-left pl-3 snipcss0-10-121-122 snipcss0-11-102-103">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="write:org"
+                                class="js-checkbox-scope snipcss0-11-122-123 snipcss0-12-103-104">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-122-124 snipcss0-12-103-105">write:org</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-121-125 snipcss0-11-102-106">
+                              <span class="color-fg-muted text-normal snipcss0-11-125-126 snipcss0-12-106-107">
+                                Read and write org and team membership, read and write org projects
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                        <ul class="list-style-none snipcss0-8-119-127 snipcss0-9-100-108">
+
+
+
+                          <li class="js-check-scope-container snipcss0-9-127-128 snipcss0-10-108-109"
+                            data-scope-for="read:org">
+                            <div class="form-checkbox my-2 snipcss0-10-128-129 snipcss0-11-109-110">
+                              <label class="clearfix snipcss0-11-129-130 snipcss0-12-110-111">
+                                <div class="col-4 float-left pl-3 snipcss0-12-130-131 snipcss0-13-111-112">
+
+
+
+                                  <input type="checkbox" name="oauth_access[scopes][]" value="read:org"
+                                    class="js-checkbox-scope snipcss0-13-131-132 snipcss0-14-112-113">
+
+                                  <span data-view-component="true"
+                                    class="color-fg-default text-normal snipcss0-13-131-133 snipcss0-14-112-114">read:org</span>
+                                </div>
+
+                                <div class="col-8 float-left snipcss0-12-130-134 snipcss0-13-111-115">
+                                  <span class="color-fg-muted text-normal snipcss0-13-134-135 snipcss0-14-115-116">
+                                    Read org and team membership, read org projects
+
+                                  </span>
+                                </div>
+                              </label>
+                            </div>
+
+                          </li>
+
+                        </ul>
+                      </li>
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-118-136 snipcss0-8-99-117"
+                        data-scope-for="manage_runners:org">
+                        <div class="form-checkbox my-2 snipcss0-8-136-137 snipcss0-9-117-118">
+                          <label class="clearfix snipcss0-9-137-138 snipcss0-10-118-119">
+                            <div class="col-4 float-left pl-3 snipcss0-10-138-139 snipcss0-11-119-120">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="manage_runners:org"
+                                class="js-checkbox-scope snipcss0-11-139-140 snipcss0-12-120-121">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-139-141 snipcss0-12-120-122">manage_runners:org</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-138-142 snipcss0-11-119-123">
+                              <span class="color-fg-muted text-normal snipcss0-11-142-143 snipcss0-12-123-124">
+                                Manage org runners and runner groups
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-144 snipcss0-6-8-125"
+                    data-scope-for="admin:public_key">
+                    <div class="form-checkbox my-2 snipcss0-6-144-145 snipcss0-7-125-126">
+                      <label class="clearfix snipcss0-7-145-146 snipcss0-8-126-127">
+                        <div class="col-4 float-left snipcss0-8-146-147 snipcss0-9-127-128">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="admin:public_key"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-147-148 snipcss0-10-128-129">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-147-149 snipcss0-10-128-130">admin:public_key</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-146-150 snipcss0-9-127-131">
+                          <span class="color-fg-muted text-normal snipcss0-9-150-151 snipcss0-10-131-132">
+                            Full control of user public keys
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-144-152 snipcss0-7-125-133">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-152-153 snipcss0-8-133-134"
+                        data-scope-for="write:public_key">
+                        <div class="form-checkbox my-2 snipcss0-8-153-154 snipcss0-9-134-135">
+                          <label class="clearfix snipcss0-9-154-155 snipcss0-10-135-136">
+                            <div class="col-4 float-left pl-3 snipcss0-10-155-156 snipcss0-11-136-137">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="write:public_key"
+                                class="js-checkbox-scope snipcss0-11-156-157 snipcss0-12-137-138">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-156-158 snipcss0-12-137-139">write:public_key</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-155-159 snipcss0-11-136-140">
+                              <span class="color-fg-muted text-normal snipcss0-11-159-160 snipcss0-12-140-141">
+                                Write user public keys
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                        <ul class="list-style-none snipcss0-8-153-161 snipcss0-9-134-142">
+
+
+
+                          <li class="js-check-scope-container snipcss0-9-161-162 snipcss0-10-142-143"
+                            data-scope-for="read:public_key">
+                            <div class="form-checkbox my-2 snipcss0-10-162-163 snipcss0-11-143-144">
+                              <label class="clearfix snipcss0-11-163-164 snipcss0-12-144-145">
+                                <div class="col-4 float-left pl-3 snipcss0-12-164-165 snipcss0-13-145-146">
+
+
+
+                                  <input type="checkbox" name="oauth_access[scopes][]" value="read:public_key"
+                                    class="js-checkbox-scope snipcss0-13-165-166 snipcss0-14-146-147">
+
+                                  <span data-view-component="true"
+                                    class="color-fg-default text-normal snipcss0-13-165-167 snipcss0-14-146-148">read:public_key</span>
+                                </div>
+
+                                <div class="col-8 float-left snipcss0-12-164-168 snipcss0-13-145-149">
+                                  <span class="color-fg-muted text-normal snipcss0-13-168-169 snipcss0-14-149-150">
+                                    Read user public keys
+
+                                  </span>
+                                </div>
+                              </label>
+                            </div>
+
+                          </li>
+
+                        </ul>
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-170 snipcss0-6-8-151"
+                    data-scope-for="admin:repo_hook">
+                    <div class="form-checkbox my-2 snipcss0-6-170-171 snipcss0-7-151-152">
+                      <label class="clearfix snipcss0-7-171-172 snipcss0-8-152-153">
+                        <div class="col-4 float-left snipcss0-8-172-173 snipcss0-9-153-154">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="admin:repo_hook"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-173-174 snipcss0-10-154-155">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-173-175 snipcss0-10-154-156">admin:repo_hook</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-172-176 snipcss0-9-153-157">
+                          <span class="color-fg-muted text-normal snipcss0-9-176-177 snipcss0-10-157-158">
+                            Full control of repository hooks
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-170-178 snipcss0-7-151-159">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-178-179 snipcss0-8-159-160"
+                        data-scope-for="write:repo_hook">
+                        <div class="form-checkbox my-2 snipcss0-8-179-180 snipcss0-9-160-161">
+                          <label class="clearfix snipcss0-9-180-181 snipcss0-10-161-162">
+                            <div class="col-4 float-left pl-3 snipcss0-10-181-182 snipcss0-11-162-163">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="write:repo_hook"
+                                class="js-checkbox-scope snipcss0-11-182-183 snipcss0-12-163-164">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-182-184 snipcss0-12-163-165">write:repo_hook</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-181-185 snipcss0-11-162-166">
+                              <span class="color-fg-muted text-normal snipcss0-11-185-186 snipcss0-12-166-167">
+                                Write repository hooks
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                        <ul class="list-style-none snipcss0-8-179-187 snipcss0-9-160-168">
+
+
+
+                          <li class="js-check-scope-container snipcss0-9-187-188 snipcss0-10-168-169"
+                            data-scope-for="read:repo_hook">
+                            <div class="form-checkbox my-2 snipcss0-10-188-189 snipcss0-11-169-170">
+                              <label class="clearfix snipcss0-11-189-190 snipcss0-12-170-171">
+                                <div class="col-4 float-left pl-3 snipcss0-12-190-191 snipcss0-13-171-172">
+
+
+
+                                  <input type="checkbox" name="oauth_access[scopes][]" value="read:repo_hook"
+                                    class="js-checkbox-scope snipcss0-13-191-192 snipcss0-14-172-173">
+
+                                  <span data-view-component="true"
+                                    class="color-fg-default text-normal snipcss0-13-191-193 snipcss0-14-172-174">read:repo_hook</span>
+                                </div>
+
+                                <div class="col-8 float-left snipcss0-12-190-194 snipcss0-13-171-175">
+                                  <span class="color-fg-muted text-normal snipcss0-13-194-195 snipcss0-14-175-176">
+                                    Read repository hooks
+
+                                  </span>
+                                </div>
+                              </label>
+                            </div>
+
+                          </li>
+
+                        </ul>
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-196 snipcss0-6-8-177"
+                    data-scope-for="admin:org_hook">
+                    <div class="form-checkbox my-2 snipcss0-6-196-197 snipcss0-7-177-178">
+                      <label class="clearfix snipcss0-7-197-198 snipcss0-8-178-179">
+                        <div class="col-4 float-left snipcss0-8-198-199 snipcss0-9-179-180">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="admin:org_hook"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-199-200 snipcss0-10-180-181">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-199-201 snipcss0-10-180-182">admin:org_hook</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-198-202 snipcss0-9-179-183">
+                          <span class="color-fg-muted text-normal snipcss0-9-202-203 snipcss0-10-183-184">
+                            Full control of organization hooks
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-204 snipcss0-6-8-185"
+                    data-scope-for="gist">
+                    <div class="form-checkbox my-2 snipcss0-6-204-205 snipcss0-7-185-186">
+                      <label class="clearfix snipcss0-7-205-206 snipcss0-8-186-187">
+                        <div class="col-4 float-left snipcss0-8-206-207 snipcss0-9-187-188">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="gist"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-207-208 snipcss0-10-188-189">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-207-209 snipcss0-10-188-190">gist</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-206-210 snipcss0-9-187-191">
+                          <span class="color-fg-muted text-normal snipcss0-9-210-211 snipcss0-10-191-192">
+                            Create gists
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-212 snipcss0-6-8-193"
+                    data-scope-for="notifications">
+                    <div class="form-checkbox my-2 snipcss0-6-212-213 snipcss0-7-193-194">
+                      <label class="clearfix snipcss0-7-213-214 snipcss0-8-194-195">
+                        <div class="col-4 float-left snipcss0-8-214-215 snipcss0-9-195-196">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="notifications"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-215-216 snipcss0-10-196-197">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-215-217 snipcss0-10-196-198">notifications</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-214-218 snipcss0-9-195-199">
+                          <span class="color-fg-muted text-normal snipcss0-9-218-219 snipcss0-10-199-200">
+                            Access notifications
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-220 snipcss0-6-8-201"
+                    data-scope-for="user">
+                    <div class="form-checkbox my-2 snipcss0-6-220-221 snipcss0-7-201-202">
+                      <label class="clearfix snipcss0-7-221-222 snipcss0-8-202-203">
+                        <div class="col-4 float-left snipcss0-8-222-223 snipcss0-9-203-204">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="user"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-223-224 snipcss0-10-204-205">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-223-225 snipcss0-10-204-206">user</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-222-226 snipcss0-9-203-207">
+                          <span class="color-fg-muted text-normal snipcss0-9-226-227 snipcss0-10-207-208">
+                            Update ALL user data
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-220-228 snipcss0-7-201-209">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-228-229 snipcss0-8-209-210"
+                        data-scope-for="read:user">
+                        <div class="form-checkbox my-2 snipcss0-8-229-230 snipcss0-9-210-211">
+                          <label class="clearfix snipcss0-9-230-231 snipcss0-10-211-212">
+                            <div class="col-4 float-left pl-3 snipcss0-10-231-232 snipcss0-11-212-213">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="read:user"
+                                class="js-checkbox-scope snipcss0-11-232-233 snipcss0-12-213-214">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-232-234 snipcss0-12-213-215">read:user</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-231-235 snipcss0-11-212-216">
+                              <span class="color-fg-muted text-normal snipcss0-11-235-236 snipcss0-12-216-217">
+                                Read ALL user profile data
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-228-237 snipcss0-8-209-218"
+                        data-scope-for="user:email">
+                        <div class="form-checkbox my-2 snipcss0-8-237-238 snipcss0-9-218-219">
+                          <label class="clearfix snipcss0-9-238-239 snipcss0-10-219-220">
+                            <div class="col-4 float-left pl-3 snipcss0-10-239-240 snipcss0-11-220-221">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="user:email"
+                                class="js-checkbox-scope snipcss0-11-240-241 snipcss0-12-221-222">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-240-242 snipcss0-12-221-223">user:email</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-239-243 snipcss0-11-220-224">
+                              <span class="color-fg-muted text-normal snipcss0-11-243-244 snipcss0-12-224-225">
+                                Access user email addresses (read-only)
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-228-245 snipcss0-8-209-226"
+                        data-scope-for="user:follow">
+                        <div class="form-checkbox my-2 snipcss0-8-245-246 snipcss0-9-226-227">
+                          <label class="clearfix snipcss0-9-246-247 snipcss0-10-227-228">
+                            <div class="col-4 float-left pl-3 snipcss0-10-247-248 snipcss0-11-228-229">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="user:follow"
+                                class="js-checkbox-scope snipcss0-11-248-249 snipcss0-12-229-230">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-248-250 snipcss0-12-229-231">user:follow</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-247-251 snipcss0-11-228-232">
+                              <span class="color-fg-muted text-normal snipcss0-11-251-252 snipcss0-12-232-233">
+                                Follow and unfollow users
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-253 snipcss0-6-8-234"
+                    data-scope-for="delete_repo">
+                    <div class="form-checkbox my-2 snipcss0-6-253-254 snipcss0-7-234-235">
+                      <label class="clearfix snipcss0-7-254-255 snipcss0-8-235-236">
+                        <div class="col-4 float-left snipcss0-8-255-256 snipcss0-9-236-237">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="delete_repo"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-256-257 snipcss0-10-237-238">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-256-258 snipcss0-10-237-239">delete_repo</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-255-259 snipcss0-9-236-240">
+                          <span class="color-fg-muted text-normal snipcss0-9-259-260 snipcss0-10-240-241">
+                            Delete repositories
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-261 snipcss0-6-8-242"
+                    data-scope-for="write:discussion">
+                    <div class="form-checkbox my-2 snipcss0-6-261-262 snipcss0-7-242-243">
+                      <label class="clearfix snipcss0-7-262-263 snipcss0-8-243-244">
+                        <div class="col-4 float-left snipcss0-8-263-264 snipcss0-9-244-245">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="write:discussion"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-264-265 snipcss0-10-245-246">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-264-266 snipcss0-10-245-247">write:discussion</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-263-267 snipcss0-9-244-248">
+                          <span class="color-fg-muted text-normal snipcss0-9-267-268 snipcss0-10-248-249">
+                            Read and write team discussions
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-261-269 snipcss0-7-242-250">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-269-270 snipcss0-8-250-251"
+                        data-scope-for="read:discussion">
+                        <div class="form-checkbox my-2 snipcss0-8-270-271 snipcss0-9-251-252">
+                          <label class="clearfix snipcss0-9-271-272 snipcss0-10-252-253">
+                            <div class="col-4 float-left pl-3 snipcss0-10-272-273 snipcss0-11-253-254">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="read:discussion"
+                                class="js-checkbox-scope snipcss0-11-273-274 snipcss0-12-254-255">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-273-275 snipcss0-12-254-256">read:discussion</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-272-276 snipcss0-11-253-257">
+                              <span class="color-fg-muted text-normal snipcss0-11-276-277 snipcss0-12-257-258">
+                                Read team discussions
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-278 snipcss0-6-8-259"
+                    data-scope-for="admin:enterprise">
+                    <div class="form-checkbox my-2 snipcss0-6-278-279 snipcss0-7-259-260">
+                      <label class="clearfix snipcss0-7-279-280 snipcss0-8-260-261">
+                        <div class="col-4 float-left snipcss0-8-280-281 snipcss0-9-261-262">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="admin:enterprise"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-281-282 snipcss0-10-262-263">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-281-283 snipcss0-10-262-264">admin:enterprise</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-280-284 snipcss0-9-261-265">
+                          <span class="color-fg-muted text-normal snipcss0-9-284-285 snipcss0-10-265-266">
+                            Full control of enterprises
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-278-286 snipcss0-7-259-267">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-286-287 snipcss0-8-267-268"
+                        data-scope-for="manage_runners:enterprise">
+                        <div class="form-checkbox my-2 snipcss0-8-287-288 snipcss0-9-268-269">
+                          <label class="clearfix snipcss0-9-288-289 snipcss0-10-269-270">
+                            <div class="col-4 float-left pl-3 snipcss0-10-289-290 snipcss0-11-270-271">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="manage_runners:enterprise"
+                                class="js-checkbox-scope snipcss0-11-290-291 snipcss0-12-271-272">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-290-292 snipcss0-12-271-273">manage_runners:enterprise</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-289-293 snipcss0-11-270-274">
+                              <span class="color-fg-muted text-normal snipcss0-11-293-294 snipcss0-12-274-275">
+                                Manage enterprise runners and runner groups
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-286-295 snipcss0-8-267-276"
+                        data-scope-for="manage_billing:enterprise">
+                        <div class="form-checkbox my-2 snipcss0-8-295-296 snipcss0-9-276-277">
+                          <label class="clearfix snipcss0-9-296-297 snipcss0-10-277-278">
+                            <div class="col-4 float-left pl-3 snipcss0-10-297-298 snipcss0-11-278-279">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="manage_billing:enterprise"
+                                class="js-checkbox-scope snipcss0-11-298-299 snipcss0-12-279-280">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-298-300 snipcss0-12-279-281">manage_billing:enterprise</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-297-301 snipcss0-11-278-282">
+                              <span class="color-fg-muted text-normal snipcss0-11-301-302 snipcss0-12-282-283">
+                                Read and write enterprise billing data
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                        <ul class="list-style-none snipcss0-8-295-303 snipcss0-9-276-284">
+
+
+
+                          <li class="js-check-scope-container snipcss0-9-303-304 snipcss0-10-284-285"
+                            data-scope-for="read:enterprise">
+                            <div class="form-checkbox my-2 snipcss0-10-304-305 snipcss0-11-285-286">
+                              <label class="clearfix snipcss0-11-305-306 snipcss0-12-286-287">
+                                <div class="col-4 float-left pl-3 snipcss0-12-306-307 snipcss0-13-287-288">
+
+
+
+                                  <input type="checkbox" name="oauth_access[scopes][]" value="read:enterprise"
+                                    class="js-checkbox-scope snipcss0-13-307-308 snipcss0-14-288-289">
+
+                                  <span data-view-component="true"
+                                    class="color-fg-default text-normal snipcss0-13-307-309 snipcss0-14-288-290">read:enterprise</span>
+                                </div>
+
+                                <div class="col-8 float-left snipcss0-12-306-310 snipcss0-13-287-291">
+                                  <span class="color-fg-muted text-normal snipcss0-13-310-311 snipcss0-14-291-292">
+                                    Read enterprise profile data
+
+                                  </span>
+                                </div>
+                              </label>
+                            </div>
+
+                          </li>
+
+                        </ul>
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-312 snipcss0-6-8-293"
+                    data-scope-for="audit_log">
+                    <div class="form-checkbox my-2 snipcss0-6-312-313 snipcss0-7-293-294">
+                      <label class="clearfix snipcss0-7-313-314 snipcss0-8-294-295">
+                        <div class="col-4 float-left snipcss0-8-314-315 snipcss0-9-295-296">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="audit_log"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-315-316 snipcss0-10-296-297">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-315-317 snipcss0-10-296-298">audit_log</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-314-318 snipcss0-9-295-299">
+                          <span class="color-fg-muted text-normal snipcss0-9-318-319 snipcss0-10-299-300">
+                            Full control of audit log
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-312-320 snipcss0-7-293-301">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-320-321 snipcss0-8-301-302"
+                        data-scope-for="read:audit_log">
+                        <div class="form-checkbox my-2 snipcss0-8-321-322 snipcss0-9-302-303">
+                          <label class="clearfix snipcss0-9-322-323 snipcss0-10-303-304">
+                            <div class="col-4 float-left pl-3 snipcss0-10-323-324 snipcss0-11-304-305">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="read:audit_log"
+                                class="js-checkbox-scope snipcss0-11-324-325 snipcss0-12-305-306">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-324-326 snipcss0-12-305-307">read:audit_log</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-323-327 snipcss0-11-304-308">
+                              <span class="color-fg-muted text-normal snipcss0-11-327-328 snipcss0-12-308-309">
+                                Read access of audit log
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-329 snipcss0-6-8-310"
+                    data-scope-for="codespace">
+                    <div class="form-checkbox my-2 snipcss0-6-329-330 snipcss0-7-310-311">
+                      <label class="clearfix snipcss0-7-330-331 snipcss0-8-311-312">
+                        <div class="col-4 float-left snipcss0-8-331-332 snipcss0-9-312-313">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="codespace"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-332-333 snipcss0-10-313-314">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-332-334 snipcss0-10-313-315">codespace</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-331-335 snipcss0-9-312-316">
+                          <span class="color-fg-muted text-normal snipcss0-9-335-336 snipcss0-10-316-317">
+                            Full control of codespaces
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-329-337 snipcss0-7-310-318">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-337-338 snipcss0-8-318-319"
+                        data-scope-for="codespace:secrets">
+                        <div class="form-checkbox my-2 snipcss0-8-338-339 snipcss0-9-319-320">
+                          <label class="clearfix snipcss0-9-339-340 snipcss0-10-320-321">
+                            <div class="col-4 float-left pl-3 snipcss0-10-340-341 snipcss0-11-321-322">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="codespace:secrets"
+                                class="js-checkbox-scope snipcss0-11-341-342 snipcss0-12-322-323">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-341-343 snipcss0-12-322-324">codespace:secrets</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-340-344 snipcss0-11-321-325">
+                              <span class="color-fg-muted text-normal snipcss0-11-344-345 snipcss0-12-325-326">
+                                Ability to create, read, update, and delete codespace secrets
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-346 snipcss0-6-8-327"
+                    data-scope-for="copilot">
+                    <div class="form-checkbox my-2 snipcss0-6-346-347 snipcss0-7-327-328">
+                      <label class="clearfix snipcss0-7-347-348 snipcss0-8-328-329">
+                        <div class="col-4 float-left snipcss0-8-348-349 snipcss0-9-329-330">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="copilot"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-349-350 snipcss0-10-330-331">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-349-351 snipcss0-10-330-332">copilot</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-348-352 snipcss0-9-329-333">
+                          <span class="color-fg-muted text-normal snipcss0-9-352-353 snipcss0-10-333-334">
+                            Full control of GitHub Copilot settings and seat assignments
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-346-354 snipcss0-7-327-335">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-354-355 snipcss0-8-335-336"
+                        data-scope-for="manage_billing:copilot">
+                        <div class="form-checkbox my-2 snipcss0-8-355-356 snipcss0-9-336-337">
+                          <label class="clearfix snipcss0-9-356-357 snipcss0-10-337-338">
+                            <div class="col-4 float-left pl-3 snipcss0-10-357-358 snipcss0-11-338-339">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="manage_billing:copilot"
+                                class="js-checkbox-scope snipcss0-11-358-359 snipcss0-12-339-340">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-358-360 snipcss0-12-339-341">manage_billing:copilot</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-357-361 snipcss0-11-338-342">
+                              <span class="color-fg-muted text-normal snipcss0-11-361-362 snipcss0-12-342-343">
+                                View and edit Copilot Business seat assignments
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-363 snipcss0-6-8-344"
+                    data-scope-for="write:network_configurations">
+                    <div class="form-checkbox my-2 snipcss0-6-363-364 snipcss0-7-344-345">
+                      <label class="clearfix snipcss0-7-364-365 snipcss0-8-345-346">
+                        <div class="col-4 float-left snipcss0-8-365-366 snipcss0-9-346-347">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="write:network_configurations"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-366-367 snipcss0-10-347-348">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-366-368 snipcss0-10-347-349">write:network_configurations</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-365-369 snipcss0-9-346-350">
+                          <span class="color-fg-muted text-normal snipcss0-9-369-370 snipcss0-10-350-351">
+                            Write org hosted compute network configurations
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-363-371 snipcss0-7-344-352">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-371-372 snipcss0-8-352-353"
+                        data-scope-for="read:network_configurations">
+                        <div class="form-checkbox my-2 snipcss0-8-372-373 snipcss0-9-353-354">
+                          <label class="clearfix snipcss0-9-373-374 snipcss0-10-354-355">
+                            <div class="col-4 float-left pl-3 snipcss0-10-374-375 snipcss0-11-355-356">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="read:network_configurations"
+                                class="js-checkbox-scope snipcss0-11-375-376 snipcss0-12-356-357">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-375-377 snipcss0-12-356-358">read:network_configurations</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-374-378 snipcss0-11-355-359">
+                              <span class="color-fg-muted text-normal snipcss0-11-378-379 snipcss0-12-359-360">
+                                Read org hosted compute network configurations
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-380 snipcss0-6-8-361"
+                    data-scope-for="project">
+                    <div class="form-checkbox my-2 snipcss0-6-380-381 snipcss0-7-361-362">
+                      <label class="clearfix snipcss0-7-381-382 snipcss0-8-362-363">
+                        <div class="col-4 float-left snipcss0-8-382-383 snipcss0-9-363-364">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="project"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-383-384 snipcss0-10-364-365">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-383-385 snipcss0-10-364-366">project</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-382-386 snipcss0-9-363-367">
+                          <span class="color-fg-muted text-normal snipcss0-9-386-387 snipcss0-10-367-368">
+                            Full control of projects
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-380-388 snipcss0-7-361-369">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-388-389 snipcss0-8-369-370"
+                        data-scope-for="read:project">
+                        <div class="form-checkbox my-2 snipcss0-8-389-390 snipcss0-9-370-371">
+                          <label class="clearfix snipcss0-9-390-391 snipcss0-10-371-372">
+                            <div class="col-4 float-left pl-3 snipcss0-10-391-392 snipcss0-11-372-373">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="read:project"
+                                class="js-checkbox-scope snipcss0-11-392-393 snipcss0-12-373-374">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-392-394 snipcss0-12-373-375">read:project</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-391-395 snipcss0-11-372-376">
+                              <span class="color-fg-muted text-normal snipcss0-11-395-396 snipcss0-12-376-377">
+                                Read access of projects
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-397 snipcss0-6-8-378"
+                    data-scope-for="admin:gpg_key">
+                    <div class="form-checkbox my-2 snipcss0-6-397-398 snipcss0-7-378-379">
+                      <label class="clearfix snipcss0-7-398-399 snipcss0-8-379-380">
+                        <div class="col-4 float-left snipcss0-8-399-400 snipcss0-9-380-381">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="admin:gpg_key"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-400-401 snipcss0-10-381-382">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-400-402 snipcss0-10-381-383">admin:gpg_key</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-399-403 snipcss0-9-380-384">
+                          <span class="color-fg-muted text-normal snipcss0-9-403-404 snipcss0-10-384-385">
+                            Full control of public user GPG keys
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-397-405 snipcss0-7-378-386">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-405-406 snipcss0-8-386-387"
+                        data-scope-for="write:gpg_key">
+                        <div class="form-checkbox my-2 snipcss0-8-406-407 snipcss0-9-387-388">
+                          <label class="clearfix snipcss0-9-407-408 snipcss0-10-388-389">
+                            <div class="col-4 float-left pl-3 snipcss0-10-408-409 snipcss0-11-389-390">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="write:gpg_key"
+                                class="js-checkbox-scope snipcss0-11-409-410 snipcss0-12-390-391">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-409-411 snipcss0-12-390-392">write:gpg_key</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-408-412 snipcss0-11-389-393">
+                              <span class="color-fg-muted text-normal snipcss0-11-412-413 snipcss0-12-393-394">
+                                Write public user GPG keys
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                        <ul class="list-style-none snipcss0-8-406-414 snipcss0-9-387-395">
+
+
+
+                          <li class="js-check-scope-container snipcss0-9-414-415 snipcss0-10-395-396"
+                            data-scope-for="read:gpg_key">
+                            <div class="form-checkbox my-2 snipcss0-10-415-416 snipcss0-11-396-397">
+                              <label class="clearfix snipcss0-11-416-417 snipcss0-12-397-398">
+                                <div class="col-4 float-left pl-3 snipcss0-12-417-418 snipcss0-13-398-399">
+
+
+
+                                  <input type="checkbox" name="oauth_access[scopes][]" value="read:gpg_key"
+                                    class="js-checkbox-scope snipcss0-13-418-419 snipcss0-14-399-400">
+
+                                  <span data-view-component="true"
+                                    class="color-fg-default text-normal snipcss0-13-418-420 snipcss0-14-399-401">read:gpg_key</span>
+                                </div>
+
+                                <div class="col-8 float-left snipcss0-12-417-421 snipcss0-13-398-402">
+                                  <span class="color-fg-muted text-normal snipcss0-13-421-422 snipcss0-14-402-403">
+                                    Read public user GPG keys
+
+                                  </span>
+                                </div>
+                              </label>
+                            </div>
+
+                          </li>
+
+                        </ul>
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="Box-row px-2 py-1 js-check-scope-container snipcss0-5-27-423 snipcss0-6-8-404"
+                    data-scope-for="admin:ssh_signing_key">
+                    <div class="form-checkbox my-2 snipcss0-6-423-424 snipcss0-7-404-405">
+                      <label class="clearfix snipcss0-7-424-425 snipcss0-8-405-406">
+                        <div class="col-4 float-left snipcss0-8-425-426 snipcss0-9-406-407">
+
+
+
+                          <input type="checkbox" name="oauth_access[scopes][]" value="admin:ssh_signing_key"
+                            class="js-checkbox-scope parent-checkbox-scope snipcss0-9-426-427 snipcss0-10-407-408">
+
+                          <span data-view-component="true"
+                            class="color-fg-default text-bold snipcss0-9-426-428 snipcss0-10-407-409">admin:ssh_signing_key</span>
+                        </div>
+
+                        <div class="col-8 float-left snipcss0-8-425-429 snipcss0-9-406-410">
+                          <span class="color-fg-muted text-normal snipcss0-9-429-430 snipcss0-10-410-411">
+                            Full control of public user SSH signing keys
+
+                          </span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <ul class="list-style-none snipcss0-6-423-431 snipcss0-7-404-412">
+
+
+
+                      <li class="js-check-scope-container snipcss0-7-431-432 snipcss0-8-412-413"
+                        data-scope-for="write:ssh_signing_key">
+                        <div class="form-checkbox my-2 snipcss0-8-432-433 snipcss0-9-413-414">
+                          <label class="clearfix snipcss0-9-433-434 snipcss0-10-414-415">
+                            <div class="col-4 float-left pl-3 snipcss0-10-434-435 snipcss0-11-415-416">
+
+
+
+                              <input type="checkbox" name="oauth_access[scopes][]" value="write:ssh_signing_key"
+                                class="js-checkbox-scope snipcss0-11-435-436 snipcss0-12-416-417">
+
+                              <span data-view-component="true"
+                                class="color-fg-default text-normal snipcss0-11-435-437 snipcss0-12-416-418">write:ssh_signing_key</span>
+                            </div>
+
+                            <div class="col-8 float-left snipcss0-10-434-438 snipcss0-11-415-419">
+                              <span class="color-fg-muted text-normal snipcss0-11-438-439 snipcss0-12-419-420">
+                                Write public user SSH signing keys
+
+                              </span>
+                            </div>
+                          </label>
+                        </div>
+
+                        <ul class="list-style-none snipcss0-8-432-440 snipcss0-9-413-421">
+
+
+
+                          <li class="js-check-scope-container snipcss0-9-440-441 snipcss0-10-421-422"
+                            data-scope-for="read:ssh_signing_key">
+                            <div class="form-checkbox my-2 snipcss0-10-441-442 snipcss0-11-422-423">
+                              <label class="clearfix snipcss0-11-442-443 snipcss0-12-423-424">
+                                <div class="col-4 float-left pl-3 snipcss0-12-443-444 snipcss0-13-424-425">
+
+
+
+                                  <input type="checkbox" name="oauth_access[scopes][]" value="read:ssh_signing_key"
+                                    class="js-checkbox-scope snipcss0-13-444-445 snipcss0-14-425-426">
+
+                                  <span data-view-component="true"
+                                    class="color-fg-default text-normal snipcss0-13-444-446 snipcss0-14-425-427">read:ssh_signing_key</span>
+                                </div>
+
+                                <div class="col-8 float-left snipcss0-12-443-447 snipcss0-13-424-428">
+                                  <span class="color-fg-muted text-normal snipcss0-13-447-448 snipcss0-14-428-429">
+                                    Read public user SSH signing keys
+
+                                  </span>
+                                </div>
+                              </label>
+                            </div>
+
+                          </li>
+
+                        </ul>
+                      </li>
+
+                    </ul>
+                  </li>
+
+                </ul>
+              </div>
+            </dd>
+          </dl>
+        </div>
+
+      </form>
+
+      <div class="footer">
+        <p id="settings_user_tokens_note">
+          Your token generation url is:
+        </p>
+        <p id="url"></p>
+
+        <p
+          class="skipcss XXsnipcss_extracted_selector_selectionXX snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
+          <button type="submit" data-view-component="true" class="btn-primary btn skipcss" style=""> Copy token
+            generation link
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+<script>
+  const scopeContainerDivs = [];
+  const urlDiv = document.getElementById("url");
+  const buttonDiv = document.querySelector('button');
+  const footer = document.querySelector('.footer');
+  const _scopeContainerDivs = document.querySelectorAll('.Box-row.js-check-scope-container');
+  for (let scopeContainerDiv of _scopeContainerDivs) {
+    let childCheckboxes = Array.from(scopeContainerDiv.querySelectorAll('.js-checkbox-scope'));
+    let parentCheckbox = childCheckboxes.shift();
+    parentCheckbox.addEventListener('change', function () {
+      for (let childCheckbox of childCheckboxes) {
+        childCheckbox.checked = parentCheckbox.checked;
+        childCheckbox.disabled = parentCheckbox.checked;
+      }
+    });
+    scopeContainerDivs.push({
+      name: parentCheckbox.value,
+      parentCheckbox,
+      childCheckboxes,
+      scopeContainerDiv
+    });
+  }
+  const getScopes = () => {
+    const checkedScopes = [];
+    scopeContainerDivs.forEach(scopeContainerDiv => {
+      if (!scopeContainerDiv.parentCheckbox.checked) {
+        checkedScopes.push(...scopeContainerDiv.childCheckboxes.filter(childCheckbox => childCheckbox.checked).map(childCheckbox => childCheckbox.value));
+      } else {
+        checkedScopes.push(scopeContainerDiv.parentCheckbox.value);
+      }
+    });
+    return checkedScopes;
+  }
+  const createUrl = (scopes) => {
+    // description=Refined%20GitHub&
+    let url = `https://github.com/settings/tokens/new`;
+    if (scopes) {
+      url = `${url}?scopes=${scopes.join(',')}`;
+    }
+    return url;
+  }
+  const checkboxChange = () => {
+    const scopes = getScopes();
+    const url = createUrl(scopes);
+    footer.style.display = scopes.length > 0 ? 'block' : 'none';
+    urlDiv.innerHTML = url;
+  }
+  scopeContainerDivs.forEach(scopeContainerDiv => {
+    scopeContainerDiv.parentCheckbox.addEventListener('change', checkboxChange);
+    scopeContainerDiv.childCheckboxes.forEach(childCheckbox => {
+      childCheckbox.addEventListener('change', checkboxChange);
+    });
+  });
+  const form = document.getElementById("new_oauth_access");
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+  });
+  const copy = async () => {
+    event.preventDefault();
+    event.srcElement.focus();
+    const scopes = getScopes();
+    const url = createUrl(scopes);
+    await navigator.clipboard.writeText(url);
+    buttonDiv.innerHTML = "Copied!";
+    setTimeout(() => {
+      buttonDiv.innerHTML = "Copy token generation link";
+    }, 2000);
+  };
+  urlDiv.addEventListener('click', copy);
+  buttonDiv.addEventListener('click', copy);
+
+</script>
