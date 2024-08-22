@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 0 40px 0;
+    margin: 1rem;
   }
 
   .footer {
@@ -2701,7 +2701,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <title>Document</title>
+  <title>Generate GitHub PAT URL</title>
+  <link rel="alternate icon" class="js-site-favicon" type="image/png" href="https://github.githubassets.com/favicons/favicon-dark.png">
+  <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon-dark.svg">
 </head>
 
 <body>
@@ -2709,7 +2711,7 @@
     <div style="width: 768px;max-width: 100%;box-sizing: border-box;padding: 0 20px;">
 
       <div data-view-component="true" class="Subhead">
-        <h2 data-view-component="true" class="Subhead-heading Subhead-heading--large">
+        <h2 data-view-component="true" class="Subhead-heading Subhead-heading--large" style="margin: 0;">
           Generate Preconfigured GitHub PAT URL
         </h2>
 
@@ -4227,7 +4229,7 @@
       </form>
 
       <div class="footer">
-        <p id="settings_user_tokens_note">
+        <p id="settings_user_tokens_note" class="color-fg-muted text-normal" style="margin-bottom:0">
           Your create token url is:
         </p>
         <p id="url"></p>
@@ -4281,7 +4283,7 @@
     return checkedScopes;
   }
   const createUrl = (scopes, description) => {
-    let url = `https://github.com/settings/tokens/new`;
+    let base = `https://github.com/settings/tokens/new`;
     const params = new URLSearchParams();
     if (description) {
       params.append('description', description);
@@ -4289,14 +4291,18 @@
     if (scopes?.length > 0) {
       params.append('scopes', scopes.join(','));
     }
-    return `${url}?${params.toString()}`;
+    console.log(scopes.join(','))
+    return `${base}${params.size > 0 ? '?' : ''}${params.toString()}`;
   }
   const checkboxChange = () => {
     const scopes = getScopes();
     const description = descriptionInput.value;
     const url = createUrl(scopes, description);
     footer.style.display = (scopes?.length || description?.length) > 0 ? 'block' : 'none';
-    urlDiv.innerHTML = url;
+    if (urlDiv.innerHTML !== url) {
+      urlDiv.innerHTML = url;
+    }
+    return url
   }
   scopeContainerDivs.forEach(scopeContainerDiv => {
     scopeContainerDiv.parentCheckbox.addEventListener('change', checkboxChange);
@@ -4307,16 +4313,12 @@
   const form = document.getElementById("new_oauth_access");
   descriptionInput.addEventListener('input', checkboxChange);
   form.addEventListener("submit", async (event) => event.preventDefault()); // yeah
-  const copy = async () => {
+  const copy = async (event) => {
     event.preventDefault();
-    event.srcElement.focus();
-    const scopes = getScopes();
-    const url = createUrl(scopes);
+    const url = checkboxChange();
     await navigator.clipboard.writeText(url);
     buttonDiv.innerHTML = "Copied!";
-    setTimeout(() => {
-      buttonDiv.innerHTML = "Copy create token link";
-    }, 2000);
+    setTimeout(() => buttonDiv.innerHTML = 'Copy create token link', 2000);
   };
   urlDiv.addEventListener('click', copy);
   buttonDiv.addEventListener('click', copy);
