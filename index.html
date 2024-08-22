@@ -848,9 +848,10 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    :root {    
+    :root {
       color-scheme: dark;
     }
+
     body {
       -webkit-text-size-adjust: 100%;
       --rgh-green: var(--fgColor-success, var(--color-success-fg, #1a7f37));
@@ -2471,6 +2472,225 @@
   }
 </style>
 
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+  @media all {
+    body {
+      font-family: sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--fgColor-default, var(--color-fg-default));
+    }
+  }
+
+  @media all {
+    * {
+      box-sizing: border-box;
+    }
+
+    :is(.Layout-main .Layout-main-centered-md, .Layout-main .Layout-main-centered-lg, .Layout-main .Layout-main-centered-xl)>.container-md {
+      margin-left: 0;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      font-size: var(--body-font-size, 14px);
+      line-height: 1.5;
+      color: var(--fgColor-default, var(--color-fg-default));
+      background-color: var(--bgColor-default, var(--color-canvas-default));
+    }
+
+    html {
+      font-size: 16px;
+      font-family: sans-serif;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    :root {
+      --base-size-4: 0.25rem;
+      --base-size-16: 1rem;
+      --base-size-24: 1.5rem;
+      --base-size-40: 2.5rem;
+    }
+
+    :root {
+      --base-text-weight-normal: 400;
+      --base-text-weight-medium: 500;
+      --base-text-weight-semibold: 600;
+    }
+
+    :root {
+      --breakpoint-medium: 48rem;
+    }
+
+    :root {
+      --control-medium-paddingBlock: 0.375rem;
+    }
+
+    :root {
+      --text-codeInline-size: 0.9285em;
+      --text-codeBlock-lineHeight: 1.5385;
+      --text-codeBlock-size: 0.8125rem;
+      --text-caption-lineHeight: 1.3333;
+      --text-caption-size: 0.75rem;
+      --text-body-lineHeight-small: 1.6666;
+      --text-body-lineHeight-medium: 1.4285;
+      --text-body-lineHeight-large: 1.5;
+      --text-body-size-small: 0.75rem;
+      --text-body-size-medium: 0.875rem;
+      --text-body-size-large: 1rem;
+      --text-subtitle-lineHeight: 1.6;
+      --text-subtitle-size: 1.25rem;
+      --text-title-lineHeight-small: 1.5;
+      --text-title-lineHeight-medium: 1.6;
+      --text-title-lineHeight-large: 1.5;
+      --text-title-size-small: 1rem;
+      --text-title-size-medium: 1.25rem;
+      --text-title-size-large: 2rem;
+      --text-display-lineHeight: 1.4;
+      --text-display-size: 2.5rem;
+      --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+      --fontStack-sansSerifDisplay: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --text-codeInline-weight: var(--base-text-weight-normal);
+      --text-codeBlock-weight: var(--base-text-weight-normal);
+      --text-caption-weight: var(--base-text-weight-normal);
+      --text-body-weight: var(--base-text-weight-normal);
+      --text-subtitle-weight: var(--base-text-weight-normal);
+      --text-title-weight-small: var(--base-text-weight-semibold);
+      --text-title-weight-medium: var(--base-text-weight-semibold);
+      --text-title-weight-large: var(--base-text-weight-semibold);
+      --text-display-weight: var(--base-text-weight-medium);
+      --text-codeInline-shorthand: var(--text-codeInline-weight) var(--text-codeInline-size) var(--fontStack-monospace);
+      --text-codeBlock-shorthand: var(--text-codeBlock-weight) var(--text-codeBlock-size) / var(--text-codeBlock-lineHeight) var(--fontStack-monospace);
+      --text-caption-shorthand: var(--text-caption-weight) var(--text-caption-size) / var(--text-caption-lineHeight) var(--fontStack-sansSerif);
+      --text-body-shorthand-small: var(--text-body-weight) var(--text-body-size-small) / var(--text-body-lineHeight-small) var(--fontStack-sansSerif);
+      --text-body-shorthand-medium: var(--text-body-weight) var(--text-body-size-medium) / var(--text-body-lineHeight-medium) var(--fontStack-sansSerif);
+      --text-body-shorthand-large: var(--text-body-weight) var(--text-body-size-large) / var(--text-body-lineHeight-large) var(--fontStack-sansSerif);
+      --text-subtitle-shorthand: var(--text-subtitle-weight) var(--text-subtitle-size) / var(--text-subtitle-lineHeight) var(--fontStack-sansSerifDisplay);
+      --text-title-shorthand-small: var(--text-title-weight-small) var(--text-title-size-small) / var(--text-title-lineHeight-small) var(--fontStack-sansSerif);
+      --text-title-shorthand-medium: var(--text-title-weight-medium) var(--text-title-size-medium) / var(--text-title-lineHeight-medium) var(--fontStack-sansSerifDisplay);
+      --text-title-shorthand-large: var(--text-title-weight-large) var(--text-title-size-large) / var(--text-title-lineHeight-large) var(--fontStack-sansSerifDisplay);
+      --text-display-shorthand: var(--text-display-weight) var(--text-display-size) / var(--text-display-lineHeight) var(--fontStack-sansSerifDisplay);
+    }
+
+    :root {
+      --body-font-size: 0.875rem;
+    }
+
+    :root {
+      color-scheme: light;
+    }
+
+    :root {
+      --Layout-pane-width: 220px;
+      --Layout-template-columns: 1fr var(--Layout-pane-width);
+      --Layout-column-gap: var(--base-size-16);
+      --Layout-row-gap: var(--base-size-16);
+    }
+
+    :root {
+      --actionListContent-paddingBlock: var(--control-medium-paddingBlock);
+    }
+
+    :root {
+      --color-workflow-card-bg: var(--bgColor-default, var(--color-scale-white));
+      --color-notifications-row-read-bg: var(--bgColor-muted, var(--color-canvas-subtle));
+      --color-notifications-row-bg: var(--bgColor-white, var(--color-scale-white));
+      --color-user-mention-fg: var(--fgColor-default, var(--color-fg-default));
+      --color-project-sidebar-bg: var(--bgColor-white, var(--color-scale-white));
+      --color-project-gradient-in: var(--bgColor-white, var(--color-scale-white));
+      --color-text-white: var(--fgColor-white, var(--color-scale-white));
+    }
+
+    .form-group {
+      margin: 15px 0;
+    }
+
+    dt {
+      margin: 0 0 6px;
+    }
+
+    dd {
+      margin-left: 0;
+    }
+
+    label {
+      font-weight: var(--base-text-weight-semibold, 600);
+    }
+
+    label {
+      position: static;
+    }
+
+    input {
+      font: inherit;
+      margin: 0;
+    }
+
+    input {
+      overflow: visible;
+    }
+
+    input {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    .form-control {
+      padding: 5px 12px;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--fgColor-default, var(--color-fg-default));
+      vertical-align: middle;
+      background-color: var(--bgColor-default, var(--color-canvas-default));
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      border: 1px solid var(--control-borderColor-rest, var(--color-border-default));
+      border-radius: 6px;
+      box-shadow: var(--shadow-inset, var(--color-primer-shadow-inset));
+      transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+      transition-property: color, background-color, box-shadow, border-color;
+    }
+
+    .form-control {
+      width: 440px;
+      max-width: 100%;
+      margin-right: 5px;
+      background-color: var(--bgColor-muted, var(--color-canvas-inset));
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .note {
+      min-height: 17px;
+      margin: var(--base-size-4) 0 2px;
+      font-size: 12px;
+      color: var(--fgColor-muted, var(--color-fg-muted));
+    }
+
+    .form-group .form-control:focus {
+      background-color: var(--bgColor-default, var(--color-canvas-default)) !important;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--focus-outlineColor, var(--color-accent-fg));
+      outline: none;
+      box-shadow: inset 0 0 0 1px var(--focus-outlineColor, var(--color-accent-fg));
+    }
+  }
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2496,12 +2716,23 @@
 
       </div>
       <p id="settings_user_tokens_note">
-        Easily create a new GitHub Personal Access Token (PAT) with the necessary permissions already selected. This tool generates a custom URL that preselects the scopes you need, saving you time and ensuring accurate access settings. Just use the generated URL to streamline your token creation process without manually selecting scopes each time.
+        Easily create a new GitHub Personal Access Token (PAT) with the necessary permissions already selected. This
+        tool generates a URL that preselects the token scopes you need, saving you time and ensuring accurate access
+        settings. Just use the generated URL to streamline your token creation process without manually selecting scopes
+        each time.
       </p>
       <form
         class="new_oauth_access snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center"
         id="new_oauth_access" aria-label="Personal access token" aria-describedby="settings_user_tokens_note"
         accept-charset="UTF-8">
+
+        <dl class="form-group">
+          <dt class="input-label"><label autofocus="autofocus" for="oauth_access_description">Note</label></dt>
+          <dd><input aria-describedby="description_2f8e60800236" autofocus="autofocus" class="form-control wide"
+              type="text" name="oauth_access[description]" id="oauth_access_description">
+            <p class="note" id="description_2f8e60800236">What’s this token for?</p>
+          </dd>
+        </dl>
 
         <div
           class="form snipcss0-0-0-1 snipcss0-1-1-2 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
@@ -3997,14 +4228,14 @@
 
       <div class="footer">
         <p id="settings_user_tokens_note">
-          Your token generation url is:
+          Your create token url is:
         </p>
         <p id="url"></p>
 
         <p
           class="skipcss XXsnipcss_extracted_selector_selectionXX snipcss0-0-0-1 tether-element-attached-top tether-element-attached-center tether-target-attached-top tether-target-attached-center">
-          <button type="submit" data-view-component="true" class="btn-primary btn skipcss" style=""> Copy token
-            generation link
+          <button type="submit" data-view-component="true" class="btn-primary btn skipcss" style="">
+            Copy create token link
           </button>
         </p>
       </div>
@@ -4017,6 +4248,7 @@
 
 <script>
   const scopeContainerDivs = [];
+  const descriptionInput = document.getElementById("oauth_access_description");
   const urlDiv = document.getElementById("url");
   const buttonDiv = document.querySelector('button');
   const footer = document.querySelector('.footer');
@@ -4048,18 +4280,22 @@
     });
     return checkedScopes;
   }
-  const createUrl = (scopes) => {
-    // description=Refined%20GitHub&
+  const createUrl = (scopes, description) => {
     let url = `https://github.com/settings/tokens/new`;
-    if (scopes) {
-      url = `${url}?scopes=${scopes.join(',')}`;
+    const params = new URLSearchParams();
+    if (description) {
+      params.append('description', description);
     }
-    return url;
+    if (scopes?.length > 0) {
+      params.append('scopes', scopes.join(','));
+    }
+    return `${url}?${params.toString()}`;
   }
   const checkboxChange = () => {
     const scopes = getScopes();
-    const url = createUrl(scopes);
-    footer.style.display = scopes.length > 0 ? 'block' : 'none';
+    const description = descriptionInput.value;
+    const url = createUrl(scopes, description);
+    footer.style.display = (scopes?.length || description?.length) > 0 ? 'block' : 'none';
     urlDiv.innerHTML = url;
   }
   scopeContainerDivs.forEach(scopeContainerDiv => {
@@ -4069,9 +4305,8 @@
     });
   });
   const form = document.getElementById("new_oauth_access");
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-  });
+  descriptionInput.addEventListener('input', checkboxChange);
+  form.addEventListener("submit", async (event) => event.preventDefault()); // yeah
   const copy = async () => {
     event.preventDefault();
     event.srcElement.focus();
@@ -4080,7 +4315,7 @@
     await navigator.clipboard.writeText(url);
     buttonDiv.innerHTML = "Copied!";
     setTimeout(() => {
-      buttonDiv.innerHTML = "Copy token generation link";
+      buttonDiv.innerHTML = "Copy create token link";
     }, 2000);
   };
   urlDiv.addEventListener('click', copy);
